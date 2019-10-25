@@ -1,0 +1,9 @@
+<% var data = {
+  title: "Заголовок | Проект",
+  author: "Harrix"
+}; %>
+<%= _.template(require('./../components/header.html').default)(data) %>
+
+<p>text</p>
+
+<%= _.template(require('./../components/footer.html').default)(data) %>
