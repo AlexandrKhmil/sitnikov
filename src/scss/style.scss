@@ -1,7 +1,8 @@
-@import './color.scss'; 
-.class {
-    color: $blue;
-    .class2 {
-        color: $white;
-    }
-}
+@import '../fonts/fonts.scss';
+
+@import './setup.scss';
+@import './variables.scss'; 
+
+@import './components/container.scss'; 
+@import './components/header.scss'; 
+   
