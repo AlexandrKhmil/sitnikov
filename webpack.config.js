@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const fs = require('fs');
 const CopyWebpackPlugin= require('copy-webpack-plugin');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 function generateHtmlPlugins(templateDir) {
   const templateFiles = fs.readdirSync(path.resolve(__dirname, templateDir));
@@ -25,7 +26,7 @@ module.exports = {
     './src/scss/style.scss'
   ],
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'docs'),
     filename: './js/bundle.js'
   },
   devtool: "source-map",
@@ -45,6 +46,25 @@ module.exports = {
         include: path.resolve(__dirname, 'src/html/components'),
         use: ['raw-loader']
       },
+      {
+        test: /\.(sass|scss)$/,
+        include: path.resolve(__dirname, 'src/scss'),
+        use: ExtractTextPlugin.extract({
+          use: [{
+              loader: "css-loader",
+              options: {
+                sourceMap: true
+              }
+            },
+            {
+              loader: "sass-loader",
+              options: {
+                sourceMap: true
+              }
+            }
+          ]
+        })
+      },
     ]
   },
   plugins: [ 
@@ -62,5 +82,9 @@ module.exports = {
         to: './img'
       } 
     ]),
+    new ExtractTextPlugin({
+      filename: './css/style.bundle.css',
+      allChunks: true,
+    }),
   ].concat(htmlPlugins)
 };

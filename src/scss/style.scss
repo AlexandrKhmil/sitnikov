@@ -1,7 +1,4 @@
-@import url("./color.scss");
-$blue: blue;
-$white: $blue;
-
+@import './color.scss'; 
 .class {
     color: $blue;
     .class2 {
