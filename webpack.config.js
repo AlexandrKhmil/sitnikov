@@ -22,8 +22,7 @@ const htmlPlugins = generateHtmlPlugins('./src/html/pages')
 
 module.exports = {
   entry: [
-    './src/js/index.js',
-    './src/scss/style.scss'
+    './src/js/index.js', 
   ],
   output: {
     path: path.resolve(__dirname, 'docs'),
