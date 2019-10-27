@@ -1,8 +1,9 @@
 @import '../fonts/fonts.scss';
-
-@import './setup.scss';
-@import './variables.scss'; 
+@import './variables.scss';  
+@import './setup.scss'; 
 
 @import './components/container.scss'; 
 @import './components/header.scss'; 
-   
+@import './components/page.scss';
+
+@import './pages/home.scss';

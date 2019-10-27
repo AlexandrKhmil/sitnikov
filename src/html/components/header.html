@@ -10,15 +10,13 @@
     <title><%=title%></title>
   </head>
   <body> 
-    <% let links = [{title : 'Home', href : '/' }, {title : 'Lab1', href : '/Lab1' },] %>
+    <%let links = [{title : 'Home', href : '/' }, {title : 'Lab1', href : '/lab1.html' },]%>
     <header class="header">
       <div class="header__container">
         <a class="logo" href="/">MTZABD</a>
         <nav class="navigation">
           <ul class="navigation__list">
-            <%links.map((item) => { %>
-              <li><a href=<%-item['href']%>><%-item['title']%></a></li>
-            <%})%>
+            <%links.map((item) => { %><li><a href="<%-item['href']%>"><%-item['title']%></a></li><%})%>
           </ul>
         </nav>
       </div>
