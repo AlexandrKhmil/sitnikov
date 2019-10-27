@@ -1,5 +1,4 @@
-const path = require('path');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const path = require('path'); 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const fs = require('fs');
 const CopyWebpackPlugin= require('copy-webpack-plugin');
@@ -26,6 +25,7 @@ module.exports = {
     './src/scss/style.scss'
   ],
   output: {
+    path: path.resolve(__dirname, 'dist'),
     filename: './js/bundle.js'
   },
   devtool: "source-map",
@@ -39,28 +39,7 @@ module.exports = {
             presets: ['@babel/preset-env']
           }
         }
-      },
-      {
-        test: /\.(sass|scss)$/,
-        include: path.resolve(__dirname, 'src/scss'),
-        use: ExtractTextPlugin.extract({
-          use: [{
-              loader: "css-loader",
-              options: {
-                sourceMap: true,
-                //minimize: true,
-                url: false
-              }
-            },
-            {
-              loader: "sass-loader",
-              options: {
-                sourceMap: true
-              }
-            }
-          ]
-        })
-      },
+      }, 
       {
         test: /\.html$/,
         include: path.resolve(__dirname, 'src/html/components'),
@@ -68,11 +47,7 @@ module.exports = {
       },
     ]
   },
-  plugins: [
-    new ExtractTextPlugin({
-      filename: './css/style.bundle.css',
-      allChunks: true,
-    }),
+  plugins: [ 
     new CopyWebpackPlugin([
       {
         from: './src/fonts',

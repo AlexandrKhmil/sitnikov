@@ -1,0 +1,8 @@
+@import url('./color.scss');
+
+.class {
+    color: $blue;
+    .class2 {
+        color: $white;
+    }
+}
