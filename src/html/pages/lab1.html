@@ -6,12 +6,61 @@
 <main class="page">
   <div class="page__container">
     <div class="page__head">
-      <h1>Lab1</h1>
+      <h1>Лабораторная работа #1</h1>
+      <h3>Апроксимация функций. Интерполяция</h3>
     </div> 
     <div class="page__body">
       <h2>Main Part</h2>
       <canvas></canvas>
-      <p></p>
+
+      <h4>Управление графиком</h4>
+
+      <div class="controls">
+        <table>
+          <tr>
+            <td>Ширина</td>
+            <td><input type="number" value="5000"/></td>
+          </tr>
+          <tr>
+            <td>Высота</td>
+            <td><input type="number" value="5000"/></td>
+          </tr>
+        </table>
+
+        <table>
+          <tr>
+            <td>Увеличение по Х</td>
+            <td><input type="number" value="750"/></td>
+          </tr>
+          <tr>
+            <td>Увеличение по Y</td>
+            <td><input type="number" value="750"/></td>
+          </tr>
+        </table>
+      </div>
+
+      <h4>Входные данные</h4>
+      
+      <div class="controls">
+        <input class="btn-rem-col" type="submit" value="-" />
+        <input class="btn-add-col" type="submit" value="+" />
+      </div>
+
+      <div class="controls">
+        <table id="inputData">
+          <tbody>
+            <tr>
+              <td>X</td>
+              <td><input type="number" value="1"/></td>
+            </tr>
+            <tr>
+              <td>Y</td>
+              <td><input type="number" value="1"/></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+       
     </div>
   </div> 
 </main>

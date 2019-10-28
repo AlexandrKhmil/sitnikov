@@ -1,18 +1,36 @@
 import {draw} from './canvas.js'
 import {lagrange} from './lab1/lagrange.js'
 
-draw([[0,1], [2,3], [3,2], [5,5]], "#000000", [750, 750], 10)
+draw([[0,1], [2,3], [3,2], [5,5]], '#000000', [750, 750], 10)
 
 let xArr = [0, 2, 3 ,5]
 let yArr = [1, 3, 2, 5]
 
 let myArr = xArr.map((item, index) => {
-    return [item, yArr[index]]
+  return [item, yArr[index]]
 })
 
 let arr = []
 for (let i = 0; i < 100; i++) {
-    arr.push([i, lagrange(myArr, i)]   )
+  arr.push([i, lagrange(myArr, i)]   )
 }
 
-draw(arr, "#ff0000", [750, 750], 10)
+draw(arr, '#ff0000', [750, 750], 10)
+
+// SOME FUNCTIONAL
+let buttonAdd = document.querySelector('.btn-add-col')
+let buttonRem = document.querySelector('.btn-rem-col')
+
+console.log(buttonAdd, buttonRem)
+
+buttonAdd.addEventListener('click', () => {  
+  document.querySelectorAll('#inputData tr').forEach((item) => {
+    item.innerHTML += (item.childElementCount < 6) ? '<td><input type="number" value="1" /></td>' : ''
+  }) 
+})
+
+buttonRem.addEventListener('click', () => {
+  document.querySelectorAll('#inputData tr').forEach((item) => {
+    (item.childElementCount > 2) ? item.removeChild(item.lastChild) : ''
+  })
+})
