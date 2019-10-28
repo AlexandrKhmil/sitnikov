@@ -1,13 +1,13 @@
-export let lagrange = (xArr, yArr, x) => {
-	let sum = 0
-	let length = xArr.length
-	for (let i = 0; i < length; i++) {
-	  let top = xArr.reduce((prev, item, index) => { return (index != i) ? prev * (x - item) : prev}, 1)
-  
-	  let bottom = xArr.reduce((prev, item, index) => { return (index != i) ? prev * (xArr[i] - item) : prev}, 1)
-  
-	  let result = yArr[i]* top / bottom
-  
+export let lagrange = (arr, x) => {
+	console.log(arr,x)
+
+	let sum = 0		// [ [], [], []]
+	for (let i = 0; i < arr.length; i++) {
+	  let top = arr.reduce((prev, item, index) => { 
+		  return (index != i) ? prev * (x - item[0]) : prev }, 1)
+	  let bottom = arr.reduce((prev, item, index) => { 
+		  return (index != i) ? prev * (arr[i][0] - item[0]) : prev}, 1)
+	  let result = arr[i][1]* top / bottom 
 	  sum += result
 	}  
 	return sum
