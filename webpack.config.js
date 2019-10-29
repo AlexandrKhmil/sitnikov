@@ -53,8 +53,12 @@ module.exports = {
           use: [{
               loader: "css-loader",
               options: {
-                sourceMap: true
+                sourceMap: true,
+                url: false
               }
+            },
+            {
+              loader: 'resolve-url-loader', 
             },
             {
               loader: "sass-loader",
