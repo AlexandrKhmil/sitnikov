@@ -1,0 +1,28 @@
+.btn-rem-col, .btn-add-col {
+  margin: 0 5px 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: none; 
+  border-bottom: 1px solid $darkTeal;
+  font-size: 16px;
+  &:hover {
+    background: $teal;
+  }
+  &:active {
+    border-bottom: none;
+    transform: translateY(1px)
+  }
+}
+
+.btn-rem-col {
+  background: $lightTeal $minus no-repeat center;
+}
+
+.btn-add-col {
+  background: $lightTeal $plus no-repeat center;
+}
+

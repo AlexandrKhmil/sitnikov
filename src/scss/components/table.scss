@@ -1,0 +1,15 @@
+.table {
+  margin: 0 25px 0 0;
+  border-collapse: collapse; 
+	th, td {
+		border: 2px solid $darkTeal;
+  }
+  th {
+    background: $lightTeal;
+  }
+  td { 
+    input {
+      border: none;
+    }
+  }
+}
