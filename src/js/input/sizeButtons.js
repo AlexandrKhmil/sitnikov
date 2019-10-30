@@ -22,6 +22,5 @@ export let controllInit = () => {
 
 document.addEventListener('argsInputed', () => {
   console.log('My Event is Work!!');
-})
+}) 
 
-controllInit()

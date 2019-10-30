@@ -1,20 +1,24 @@
-// let canvas = document.querySelector('canvas')
-// let ctx = canvas.getContext('2d')
-// canvas.width  = 5000
-// canvas.height = 5000 
+export class Canvas {
+  constructor(element) {
+    this.canvas = element
+    this.canvas.width = 5000
+    this.canvas.height = 5000
+    this.ctx = element.getContext('2d')
+  }
 
-export let draw = (arr, color, scale, lineWidth) => {  
-  ctx.lineWidth = lineWidth
+  draw(arr, color, scale, lineWidth) {
+    this.ctx.lineWidth = lineWidth
 
-  ctx.beginPath()
-  ctx.strokeStyle = color
-
-  arr.forEach((item, index) => { 
-    (index == 0) 
-      ? ctx.moveTo(item[0] * scale[0], canvas.height - item[1] * scale[1]) 
-      : ctx.lineTo(item[0] * scale[0], canvas.height - item[1] * scale[1])
-    ctx.stroke();
-  })
-
-  ctx.closePath()
-}
+    this.ctx.beginPath()
+    this.ctx.strokeStyle = color
+  
+    arr.forEach((item, index) => { 
+      (index == 0) 
+        ? this.ctx.moveTo(item[0] * scale[0], this.canvas.height - item[1] * scale[1]) 
+        : this.ctx.lineTo(item[0] * scale[0], this.canvas.height - item[1] * scale[1])
+      this.ctx.stroke();
+    })
+  
+    this.ctx.closePath()
+  }
+} 
