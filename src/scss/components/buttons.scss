@@ -1,0 +1,17 @@
+.blue-btn {
+  display: flex;
+  border: none;
+  border-bottom: 1px solid $darkTeal;
+  cursor: pointer; 
+  transition: background $time ease-out;
+  &:hover {
+    background-color: $teal;
+  }
+  &:active {
+    border-bottom: none;
+    transform: translateY(1px)
+  }
+  &:focus {
+    outline: none;
+  }
+}

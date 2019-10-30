@@ -9,14 +9,17 @@
 
     <title>MTZABD Lab1</title>
   </head>
-  <body>
+  <body id="lab1">
     <header class="header">
       <div class="header__container">
         <a class="logo" href="/">MTZABD</a>
         <nav class="navigation">
           <ul class="navigation__list">
-            <li><a href="/">Home</a></li>
-          <li><a href="/lab1.html">Lab1</a></li>
+            
+              <li><a href="/sitnikov/">Home</a></li>
+            
+              <li><a href="/sitnikov/lab1.html">Lab1</a></li>
+            
           </ul>
         </nav>
       </div>
@@ -37,46 +40,63 @@
       <canvas></canvas>
       
       <!-- Input data -->
-      <h4>Входные данные</h4>
-      <div class="c1"> 
-        <div class="c2"> 
-          <div class="args-count">
-            <input class="args-count__rem" type="submit" value="" />
-            <input class="args-count__add" type="submit" value="" />
-          </div>
-          <table class="table" id="inputData">
-            <thead>
-              <tr>
-                <th>Переменная</th>
-                <th>a[1]</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>X</td>
-                <td><input type="number" value="1"/></td>
-              </tr>
-              <tr>
-                <td>Y</td>
-                <td><input type="number" value="1"/></td>
-              </tr>
-            </tbody>
-          </table>
-        </div> 
-      </div>   
+      <h4>Входные данные</h4> 
       
-      <table>
-  <thead>
-    <tr>
-      <th>My table</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>MyTable</td>
-    </tr>
-  </tbody>
-</table>
+      <!-- Used for input data --> 
+<div class="args"> 
+  <!-- Table -->
+  <table class="blue-table args-table">
+    <thead>
+      <tr>
+        <th>№</th>
+        
+          <th>1</th>
+        
+          <th>2</th>
+        
+          <th>3</th>
+        
+          <th>4</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>X</td>
+        
+          <td><input type="number" value="0"/></td>
+        
+          <td><input type="number" value="2"/></td>
+        
+          <td><input type="number" value="3"/></td>
+        
+          <td><input type="number" value="5"/></td>
+        
+      </tr>
+      <tr>
+        <td>Y</td>
+        
+          <td><input type="number" value="1"/></td>
+        
+          <td><input type="number" value="3"/></td>
+        
+          <td><input type="number" value="2"/></td>
+        
+          <td><input type="number" value="5"/></td>
+        
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Buttons -->
+  <div class="args-count">
+    <input class="blue-btn args-count__add" type="submit" value="" />
+    <input class="blue-btn args-count__rem" type="submit" value="" /> 
+  </div>
+
+  <!-- Play -->
+  <input class="blue-btn args__play" type="submit" value="" />
+</div> 
 
       <h4>Управление графиком</h4>
 

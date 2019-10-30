@@ -104,63 +104,86 @@ canvas {
   box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.75);
 }
 
-.table {
-  margin: 0 25px 0 0;
+.blue-table {
   border-collapse: collapse;
 }
 
-.table:last-child {
+.blue-table:last-child {
   margin: 0;
 }
 
-.table th,
-.table td {
+.blue-table th,
+.blue-table td {
   border: 2px solid #000D0D;
 }
 
-.table th {
+.blue-table th {
   background: #a0c8c8;
 }
 
-.table td input {
+.blue-table td {
+  text-align: center;
+}
+
+.blue-table td input {
+  padding: 0 0 0 17px;
+  width: 75px;
   border: none;
+  text-align: center;
+}
+
+.blue-btn {
+  display: flex;
+  border: none;
+  border-bottom: 1px solid #000D0D;
+  cursor: pointer;
+  transition: background .5s ease-out;
+}
+
+.blue-btn:hover {
+  background-color: #00a0a0;
+}
+
+.blue-btn:active {
+  border-bottom: none;
+  transform: translateY(1px);
+}
+
+.blue-btn:focus {
+  outline: none;
+}
+
+.args {
+  display: flex;
+  align-items: center;
+}
+
+.args__play {
+  width: 50px;
+  height: 50px;
+  border-radius: 10%;
+  background: #a0c8c8 url("../img/play.svg") no-repeat center;
+  background-size: 10px;
 }
 
 .args-count {
   display: flex;
-  margin: 0 0 5px 0;
-  transform: translateX(50%);
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 10px;
 }
 
 .args-count__rem,
 .args-count__add {
-  margin: 0 5px 0 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin: 0 0 5px 0;
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  border: none;
-  border-bottom: 1px solid #000D0D;
-  cursor: pointer;
-  font-size: 16px;
 }
 
 .args-count__rem:last-child,
 .args-count__add:last-child {
   margin: 0;
-}
-
-.args-count__rem:hover,
-.args-count__add:hover {
-  background-color: #00a0a0;
-}
-
-.args-count__rem:active,
-.args-count__add:active {
-  border-bottom: none;
-  transform: translateY(1px);
 }
 
 .args-count__rem {

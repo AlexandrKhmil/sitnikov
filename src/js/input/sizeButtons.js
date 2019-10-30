@@ -4,7 +4,7 @@ export let controllInit = () => {
       if (item.childElementCount < 10)
         (index == 0)
           ? item.appendChild(document.createElement('th')).appendChild(
-            document.createTextNode(item.childElementCount)) 
+            document.createTextNode(item.childElementCount - 1)) 
           : item.appendChild(document.createElement('td')).appendChild(
             Object.assign(document.createElement('input'), {type : 'number', value : 1}))
     }) 

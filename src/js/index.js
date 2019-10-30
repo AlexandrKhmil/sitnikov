@@ -11,6 +11,9 @@ let siteNameSpace = {
     onload : () => {
       controllInit() 
       let myCanvas = new Canvas(document.querySelector('canvas'))
+
+      myCanvas.grid([750, 750])
+
       myCanvas.draw([[0,1], [2,3], [3,2], [5,5]], '#000000', [750, 750], 10)
       let xArr = [0, 2, 3 ,5]
       let yArr = [1, 3, 2, 5]
@@ -55,7 +58,8 @@ document.addEventListener('argsInputed', () => {
 
   // Рисование
   let myCanvas = new Canvas(document.querySelector('canvas'))
-  myCanvas.draw(arr, '#ff0000', [750, 750], 10)
+  myCanvas.grid([750, 750])
+  myCanvas.draw(arr, '#000000', [750, 750], 10)
 
   // Лагранж
   let marr = []
