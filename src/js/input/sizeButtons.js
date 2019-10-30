@@ -3,8 +3,10 @@ export let controllInit = () => {
     document.querySelectorAll('.args-table tr').forEach((item, index) => {
       if (item.childElementCount < 10)
         (index == 0)
-          ? item.appendChild(document.createElement('th')).appendChild(document.createTextNode(item.childElementCount)) 
-          : item.appendChild(document.createElement('td')).appendChild(Object.assign(document.createElement('input'), {type : 'number', value : 1}))
+          ? item.appendChild(document.createElement('th')).appendChild(
+            document.createTextNode(item.childElementCount)) 
+          : item.appendChild(document.createElement('td')).appendChild(
+            Object.assign(document.createElement('input'), {type : 'number', value : 1}))
     }) 
   })
   

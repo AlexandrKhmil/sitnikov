@@ -1,10 +1,11 @@
 .args { 
   display: flex;
+  align-items: center;
 
   &__play {
     display: flex;
     width: 50px;
-    height: 100%;
+    height: 50px;
     border: none;
     border-bottom: 1px solid $darkTeal;
     border-radius: 10%;
@@ -17,6 +18,9 @@
     &:active {
       border-bottom: none;
       transform: translateY(1px);
+    }
+    &:focus {
+      outline: none;
     }
   }
 }
@@ -45,6 +49,9 @@
     &:active {
       border-bottom: none;
       transform: translateY(1px)
+    }
+    &:focus {
+      outline: none;
     }
   }
 

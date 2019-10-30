@@ -5,23 +5,23 @@
     <thead>
       <tr>
         <th>№</th>
-        <% for (let i = 0; i < 4; i++) { %>
-          <th><%- (i + 1) %></th>
-        <% } %>
+        <% values.forEach((item, index) => { %>
+          <th><%- (index + 1) %></th>
+        <% }) %>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td>X</td>
-        <% for (let i = 0; i < 4; i++) { %>
-          <td><input type="number" value="1"/></td>
-        <% } %>
+        <% values.forEach((item) => { %>
+          <td><input type="number" value="<%- item[0] %>"/></td>
+        <% }) %>
       </tr>
       <tr>
         <td>Y</td>
-        <% for (let i = 0; i < 4; i++) { %>
-          <td><input type="number" value="1"/></td>
-        <% } %>
+        <% values.forEach((item) => { %>
+          <td><input type="number" value="<%- item[1] %>"/></td>
+        <% }) %>
       </tr>
     </tbody>
   </table>

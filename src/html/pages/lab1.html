@@ -20,7 +20,8 @@
       <!-- Input data -->
       <h4>Входные данные</h4> 
       
-      <%= _.template(require('./../components/input-arr.html').default)() %>
+      <%= _.template(require('./../components/input-arr.html').default)({ 
+        values : [[0, 1], [2,3], [3,2], [5,5]] }) %> 
 
       <h4>Управление графиком</h4>
 

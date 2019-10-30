@@ -36,6 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
 /* */
 
 document.addEventListener('argsInputed', () => { 
+  // Считывание данных
   let arr = [...document.querySelectorAll('.args tbody tr')].map((row) => { 
     return [...row.children].filter((item) => {
       return ([...item.children][0] != undefined) 
@@ -52,6 +53,15 @@ document.addEventListener('argsInputed', () => {
       : row
   }, 0) 
 
+  // Рисование
   let myCanvas = new Canvas(document.querySelector('canvas'))
   myCanvas.draw(arr, '#ff0000', [750, 750], 10)
+
+  // Лагранж
+  let marr = []
+  for (let i = 0; i < 100; i+=0.1) {
+    marr.push([i, lagrange(arr, i)]   )
+  }
+
+  myCanvas.draw(marr, '#ff0000', [750, 750], 10)  
 }) 
