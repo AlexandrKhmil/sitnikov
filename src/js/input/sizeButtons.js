@@ -14,6 +14,14 @@ export let controllInit = () => {
       (item.childElementCount > 2) ? item.removeChild(item.lastChild) : ''
     })
   })
+
+  document.querySelector('.args__play').addEventListener('click', () => { 
+    document.dispatchEvent(new Event('argsInputed')) 
+  })
 }
+
+document.addEventListener('argsInputed', () => {
+  console.log('My Event is Work!!');
+})
 
 controllInit()
