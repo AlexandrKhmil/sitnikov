@@ -1,11 +1,10 @@
 export let controllInit = () => {
   document.querySelector('.args-count__add').addEventListener('click', () => {  
     document.querySelectorAll('.args-table tr').forEach((item, index) => {
-      item.innerHTML += (item.childElementCount < 8) 
-        ? (index == 0) 
-          ? `<th>${item.childElementCount}</th>` 
-          : '<td><input type="number" value="1" /></td>'
-        : '' 
+      if (item.childElementCount < 10)
+        (index == 0)
+          ? item.appendChild(document.createElement('th')).appendChild(document.createTextNode(item.childElementCount)) 
+          : item.appendChild(document.createElement('td')).appendChild(Object.assign(document.createElement('input'), {type : 'number', value : 1}))
     }) 
   })
   
