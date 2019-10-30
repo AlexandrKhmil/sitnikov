@@ -7,16 +7,18 @@
     <link rel="shortcut icon" href="favicon/favicon.ico">
     <link rel="stylesheet" href="css/style.bundle.css">
 
-    <title><%=title%></title>
+    <title><%= title %></title>
   </head>
-  <body> 
-    <%let links = [{title : 'Home', href : '/' }, {title : 'Lab1', href : '/lab1.html' }, {title : 'Lab2', href : '/lab2.html' }]%>
+  <body>
     <header class="header">
       <div class="header__container">
         <a class="logo" href="/">MTZABD</a>
         <nav class="navigation">
           <ul class="navigation__list">
-            <%links.map((item) => { %><li><a href="<%-item['href']%>"><%-item['title']%></a></li><%})%>
+            <% [{title : 'Home', href : '/'}, 
+                {title : 'Lab1', href : '/lab1.html' }].map((item) => { %>
+              <li><a href="<%-item['href']%>"><%-item['title']%></a></li>
+            <% }) %>
           </ul>
         </nav>
       </div>

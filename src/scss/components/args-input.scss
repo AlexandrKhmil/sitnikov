@@ -1,0 +1,60 @@
+.args { 
+  display: flex;
+
+  &__play {
+    display: flex;
+    width: 50px;
+    height: 100%;
+    border: none;
+    border-bottom: 1px solid $darkTeal;
+    border-radius: 10%;
+    background: $lightTeal $play no-repeat center;
+    background-size: 10px;
+    cursor: pointer;
+    &:hover {
+      background-color: $teal;
+    }
+    &:active {
+      border-bottom: none;
+      transform: translateY(1px);
+    }
+  }
+}
+
+.args-count {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 10px;
+
+  &__rem, &__add {
+    margin: 0 0 5px 0;
+    display: flex;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: none; 
+    border-bottom: 1px solid $darkTeal;
+    cursor: pointer; 
+    &:last-child {
+      margin: 0;
+    }
+    &:hover {
+      background-color: $teal;
+    }
+    &:active {
+      border-bottom: none;
+      transform: translateY(1px)
+    }
+  }
+
+  &__rem {
+    background: $lightTeal $minus no-repeat center;
+    background-size: 15px;
+  }
+
+  &__add {
+    background: $lightTeal $plus no-repeat center;
+    background-size: 15px;
+  }
+}  

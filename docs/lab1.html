@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="ru">
   <head>
@@ -8,16 +7,16 @@
     <link rel="shortcut icon" href="favicon/favicon.ico">
     <link rel="stylesheet" href="css/style.bundle.css">
 
-    <title>MTZABD Home</title>
+    <title>MTZABD Lab1</title>
   </head>
-  <body> 
-    
+  <body>
     <header class="header">
       <div class="header__container">
         <a class="logo" href="/">MTZABD</a>
         <nav class="navigation">
           <ul class="navigation__list">
-            <li><a href="/sitnikov/">Home</a></li><li><a href="/sitnikov/lab1.html">Lab1</a></li>
+            <li><a href="/">Home</a></li>
+          <li><a href="/lab1.html">Lab1</a></li>
           </ul>
         </nav>
       </div>
@@ -25,13 +24,118 @@
 
 <main class="page">
   <div class="page__container">
+    <!-- Head -->
     <div class="page__head">
-      <h1>Lab1</h1>
+      <h1>Лабораторная работа #1</h1>
+      <h3>Апроксимация функций. Интерполяция</h3>
     </div> 
+
+    <!-- Body -->
     <div class="page__body">
+      <!-- Canvas -->
       <h2>Main Part</h2>
-      <canvas id="lab1Canvas"></canvas>
-      <p>Some Text, сверху типо будет график где будет рисоваться говно</p>
+      <canvas></canvas>
+      
+      <!-- Input data -->
+      <h4>Входные данные</h4>
+      <div class="c1"> 
+        <div class="c2"> 
+          <div class="args-count">
+            <input class="args-count__rem" type="submit" value="" />
+            <input class="args-count__add" type="submit" value="" />
+          </div>
+          <table class="table" id="inputData">
+            <thead>
+              <tr>
+                <th>Переменная</th>
+                <th>a[1]</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>X</td>
+                <td><input type="number" value="1"/></td>
+              </tr>
+              <tr>
+                <td>Y</td>
+                <td><input type="number" value="1"/></td>
+              </tr>
+            </tbody>
+          </table>
+        </div> 
+      </div>   
+      
+      <table>
+  <thead>
+    <tr>
+      <th>My table</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>MyTable</td>
+    </tr>
+  </tbody>
+</table>
+
+      <h4>Управление графиком</h4>
+
+      <div class="controls"> 
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Параметр</th>
+              <th>Значение</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Ширина</td>
+              <td><input type="number" value="5000"/></td>
+            </tr>
+            <tr>
+              <td>Высота</td>
+              <td><input type="number" value="5000"/></td>
+            </tr>
+          </tbody>
+        </table> 
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Параметр</th>
+              <th>Значение</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Увеличение по Х</td>
+              <td><input type="number" value="750"/></td>
+            </tr>
+            <tr>
+              <td>Увеличение по Y</td>
+              <td><input type="number" value="750"/></td>
+            </tr>
+          </tbody> 
+        </table>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Параметр</th>
+              <th>Значение</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                Шаг:
+              </td>
+              <td><input type="number" value="0.1" step="0.1" /></td>
+            </tr>
+          </tbody>
+        </table>
+      </div> 
     </div>
   </div> 
 </main>

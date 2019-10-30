@@ -1,4 +1,10 @@
-.btn-rem-col, .btn-add-col {
+.args-count {
+  display: flex;
+  margin: 0 0 5px 0; 
+  transform: translateX(50%);
+} 
+
+.args-count__rem, .args-count__add {
   margin: 0 5px 0 0;
   display: flex;
   justify-content: center;
@@ -8,9 +14,13 @@
   border-radius: 50%;
   border: none; 
   border-bottom: 1px solid $darkTeal;
-  font-size: 16px;
+  cursor: pointer;
+  font-size: 16px; 
+  &:last-child {
+    margin: 0;
+  }
   &:hover {
-    background: $teal;
+    background-color: $teal;
   }
   &:active {
     border-bottom: none;
@@ -18,11 +28,13 @@
   }
 }
 
-.btn-rem-col {
+.args-count__rem {
   background: $lightTeal $minus no-repeat center;
+  background-size: 15px;
 }
 
-.btn-add-col {
+.args-count__add {
   background: $lightTeal $plus no-repeat center;
+  background-size: 15px;
 }
 

@@ -59,6 +59,9 @@ module.exports = {
             },
             {
               loader: 'resolve-url-loader', 
+              options: { 
+                engine: 'rework'
+              }
             },
             {
               loader: "sass-loader",
@@ -72,7 +75,7 @@ module.exports = {
     ]
   },
   plugins: [ 
-    new CopyWebpackPlugin([
+    new CopyWebpackPlugin([ 
       {
         from: './src/fonts',
         to: './fonts'

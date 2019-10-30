@@ -1,17 +1,25 @@
-<% var data = {
-  title: "MTZABD Lab1", 
-}; %>
-<%= _.template(require('./../components/header.html').default)(data) %>
+<%= _.template(require('./../components/header.html').default)({
+  title: "MTZABD Lab1"
+}) %>
 
 <main class="page">
   <div class="page__container">
+    <!-- Head -->
     <div class="page__head">
       <h1>Лабораторная работа #1</h1>
       <h3>Апроксимация функций. Интерполяция</h3>
     </div> 
+
+    <!-- Body -->
     <div class="page__body">
+      <!-- Canvas -->
       <h2>Main Part</h2>
       <canvas></canvas>
+      
+      <!-- Input data -->
+      <h4>Входные данные</h4> 
+      
+      <%= _.template(require('./../components/input-arr.html').default)() %>
 
       <h4>Управление графиком</h4>
 
@@ -70,36 +78,7 @@
             </tr>
           </tbody>
         </table>
-      </div>
-
-      <h4>Входные данные</h4>
-      
-      <div class="controls">
-        <input class="btn-rem-col" type="submit" value="-" />
-        <input class="btn-add-col" type="submit" value="+" />
-      </div>
-
-      <div class="controls">
-        <table class="table" id="inputData">
-          <thead>
-            <tr>
-              <th>Переменная</th>
-              <th>a[1]</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>X</td>
-              <td><input type="number" value="1"/></td>
-            </tr>
-            <tr>
-              <td>Y</td>
-              <td><input type="number" value="1"/></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-       
+      </div> 
     </div>
   </div> 
 </main>

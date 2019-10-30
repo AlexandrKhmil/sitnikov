@@ -1,3 +1,192 @@
-@import url(https://fonts.googleapis.com/css?family=Modak&display=swap);@import url(https://fonts.googleapis.com/css?family=Roboto:400,700,900&display=swap&subset=cyrillic);*,*:after,*:before{box-sizing:border-box}body{margin:0;padding-top:50px;background:#f2f2f2;font-family:"Roboto",sans-serif}ul,ol{margin:0;padding:0;list-style-type:none}a{text-decoration:none}canvas{margin:0 auto;max-width:500px;width:100%;max-height:500px;height:500px;box-shadow:0px 0px 5px 1px rgba(0,0,0,0.75)}.container,.header__container,.page__container{margin:0 auto;padding:0 15px;width:1200px}.header{position:fixed;top:0;left:0;right:0;display:flex;align-items:center;height:50px;background:#1e1e1e}.header__container{display:flex;justify-content:space-between;align-items:center}.logo{font-family:"Modak",cursive;color:#ff7f00;font-size:40px}.navigation__list{display:flex}.navigation__list li{margin-right:15px}.navigation__list li:last-child{margin-right:0}.navigation__list a{position:relative;color:#fff;font-size:24px}.navigation__list a:hover:after{width:100%}.navigation__list a:after{content:'';position:absolute;left:1px;bottom:4px;display:flex;width:0%;height:1px;background:#fff;transition:width .5s ease-out}.page__body{padding:25px;display:flex;flex-direction:column;background:#fff;box-shadow:0px 0px 5px 1px rgba(0,0,0,0.75)}
+@import url(https://fonts.googleapis.com/css?family=Modak&display=swap);@import url(https://fonts.googleapis.com/css?family=Roboto:400,700,900&display=swap&subset=cyrillic);*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding-top: 50px;
+  background: #f2f2f2;
+  font-family: "Roboto",sans-serif;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+canvas {
+  margin: 0 auto;
+  max-width: 500px;
+  width: 100%;
+  max-height: 500px;
+  height: 500px;
+  box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.75);
+}
+
+.container,
+.header__container,
+.page__container {
+  margin: 0 auto;
+  padding: 0 15px;
+  width: 1200px;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  height: 50px;
+  background: #1e1e1e;
+}
+
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-family: "Modak",cursive;
+  color: #00a0a0;
+  font-size: 40px;
+}
+
+.navigation__list {
+  display: flex;
+}
+
+.navigation__list li {
+  margin-right: 15px;
+}
+
+.navigation__list li:last-child {
+  margin-right: 0;
+}
+
+.navigation__list a {
+  position: relative;
+  color: #fff;
+  font-size: 24px;
+}
+
+.navigation__list a:hover:after {
+  width: 100%;
+}
+
+.navigation__list a:after {
+  content: '';
+  position: absolute;
+  left: 1px;
+  bottom: 4px;
+  display: flex;
+  width: 0%;
+  height: 1px;
+  background: #fff;
+  transition: width .5s ease-out;
+}
+
+.page__body {
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.75);
+}
+
+.table {
+  margin: 0 25px 0 0;
+  border-collapse: collapse;
+}
+
+.table:last-child {
+  margin: 0;
+}
+
+.table th,
+.table td {
+  border: 2px solid #000D0D;
+}
+
+.table th {
+  background: #a0c8c8;
+}
+
+.table td input {
+  border: none;
+}
+
+.args-count {
+  display: flex;
+  margin: 0 0 5px 0;
+  transform: translateX(50%);
+}
+
+.args-count__rem,
+.args-count__add {
+  margin: 0 5px 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: none;
+  border-bottom: 1px solid #000D0D;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.args-count__rem:last-child,
+.args-count__add:last-child {
+  margin: 0;
+}
+
+.args-count__rem:hover,
+.args-count__add:hover {
+  background-color: #00a0a0;
+}
+
+.args-count__rem:active,
+.args-count__add:active {
+  border-bottom: none;
+  transform: translateY(1px);
+}
+
+.args-count__rem {
+  background: #a0c8c8 url("../img/minus.svg") no-repeat center;
+  background-size: 15px;
+}
+
+.args-count__add {
+  background: #a0c8c8 url("../img/plus.svg") no-repeat center;
+  background-size: 15px;
+}
+
+.controls {
+  display: flex;
+}
+
+.c1 {
+  display: flex;
+  align-items: flex-start;
+}
+
+.c2 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
 
 /*# sourceMappingURL=style.bundle.css.map*/
