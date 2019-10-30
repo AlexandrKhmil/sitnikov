@@ -1,6 +1,6 @@
 export let controllInit = () => {
   document.querySelector('.args-count__add').addEventListener('click', () => {  
-    document.querySelectorAll('.js-args-table tr').forEach((item, index) => {
+    document.querySelectorAll('.args-table tr').forEach((item, index) => {
       item.innerHTML += (item.childElementCount < 8) 
         ? (index == 0) 
           ? `<th>${item.childElementCount}</th>` 
@@ -10,7 +10,7 @@ export let controllInit = () => {
   })
   
   document.querySelector('.args-count__rem').addEventListener('click', () => {
-    document.querySelectorAll('.js-args-table tr').forEach((item) => {
+    document.querySelectorAll('.args-table tr').forEach((item) => {
       (item.childElementCount > 2) ? item.removeChild(item.lastChild) : ''
     })
   })
@@ -19,8 +19,4 @@ export let controllInit = () => {
     document.dispatchEvent(new Event('argsInputed')) 
   })
 }
-
-document.addEventListener('argsInputed', () => {
-  console.log('My Event is Work!!');
-}) 
-
+ 

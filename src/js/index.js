@@ -32,3 +32,26 @@ let siteNameSpace = {
 document.addEventListener("DOMContentLoaded", () => {
   siteNameSpace[ document.body.id ].onload() 
 })
+
+/* */
+
+document.addEventListener('argsInputed', () => { 
+  let arr = [...document.querySelectorAll('.args tbody tr')].map((row) => { 
+    return [...row.children].filter((item) => {
+      return ([...item.children][0] != undefined) 
+        ? [...item.children][0].tagName == 'INPUT' && [...item.children][0].getAttribute('type') == 'number'
+        : false
+    }).map((item) => {
+      return [...item.children][0].value
+    })
+  }).reduce((prev, row, rowIndex) => { 
+    return (rowIndex != 0) 
+      ? prev.map((dot, index) => {
+        return [dot, row[index]]
+      })
+      : row
+  }, 0) 
+
+  let myCanvas = new Canvas(document.querySelector('canvas'))
+  myCanvas.draw(arr, '#ff0000', [750, 750], 10)
+}) 
