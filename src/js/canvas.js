@@ -14,20 +14,21 @@ export class Canvas {
 
     // Draw X's Lines
     this.ctx.setLineDash([scale[0]/40, scale[0]/10])
-    for(let i = 0; i < 5000; i += scale[0]) {
+    for(let i = 0; i < this.canvas.width; i += scale[0]) {
       this.ctx.moveTo(i, 0) 
-      this.ctx.lineTo(i, 5000)
-      this.ctx.fillText(i/scale[0], i + 75, 5000 - scale[1] / 10)
+      this.ctx.lineTo(i, this.canvas.height)
+      this.ctx.fillText(i/scale[0], i + 75, this.canvas.height - scale[1] / 10)
+
       this.ctx.stroke()
     } 
 
     // Draw Y's Lines
     this.ctx.setLineDash([scale[1]/40, scale[1]/10])
-    for(let i = 5000; i > 0; i -= scale[1]) {
+    for(let i = this.canvas.height; i > 0; i -= scale[1]) {
       this.ctx.moveTo(0, i) 
-      this.ctx.lineTo(5000, i)
-      if (Math.floor(5000/scale[1]) - Math.floor(i/scale[1]) != 0) 
-        this.ctx.fillText(Math.floor(5000/scale[1]) - Math.floor(i/scale[1]), scale[0] / 10, i - 25 )
+      this.ctx.lineTo(this.canvas.width, i)
+      if (Math.floor(this.canvas.height/scale[1]) - Math.floor(i/scale[1]) != 0) 
+        this.ctx.fillText(Math.floor(this.canvas.height/scale[1]) - Math.floor(i/scale[1]), scale[0] / 10, i - 25 )
       this.ctx.stroke()
     } 
     this.ctx.closePath()

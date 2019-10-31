@@ -24,16 +24,22 @@
 .navigation {
   &__list {
     display: flex;
+    align-items: center; 
     li {
-      margin-right: 15px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      margin-right: 15px; 
+      height: 50px;
+      color: $white;
+      font-size: 24px; 
       &:last-child {
         margin-right: 0;
       }
     }
     a {
-      position: relative;
-      color: $white;
-      font-size: 24px;  
+      position: relative;  
+      color: inherit;
       &:hover  {
         &:after {
           width: 100%;
@@ -49,6 +55,29 @@
         height: 1px;
         background: $white;
         transition: width $time ease-out;
+      }
+    }
+  }
+
+  &__dropdown { 
+    cursor: default; 
+    &:hover ul {
+      display: flex;
+    }
+    ul {
+      position: absolute;
+      top: 50px;
+      left: -10px;
+      display: none;
+      flex-direction: column;
+      padding: 10px;
+      min-width: 100%;
+      background: $dark;
+      li {
+        height: auto;
+      }
+      a {
+        cursor: pointer;
       }
     }
   }

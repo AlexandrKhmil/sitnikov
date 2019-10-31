@@ -1,7 +1,7 @@
 export let controllInit = () => {
   document.querySelector('.args-count__add').addEventListener('click', () => {  
     document.querySelectorAll('.args-table tr').forEach((item, index) => {
-      if (item.childElementCount < 10)
+      if (item.childElementCount < 11)
         (index == 0)
           ? item.appendChild(document.createElement('th')).appendChild(
             document.createTextNode(item.childElementCount - 1)) 
