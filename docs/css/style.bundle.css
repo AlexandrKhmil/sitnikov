@@ -64,10 +64,17 @@ canvas {
 
 .navigation__list {
   display: flex;
+  align-items: center;
 }
 
 .navigation__list li {
+  position: relative;
+  display: flex;
+  align-items: center;
   margin-right: 15px;
+  height: 50px;
+  color: #fff;
+  font-size: 24px;
 }
 
 .navigation__list li:last-child {
@@ -76,8 +83,7 @@ canvas {
 
 .navigation__list a {
   position: relative;
-  color: #fff;
-  font-size: 24px;
+  color: inherit;
 }
 
 .navigation__list a:hover:after {
@@ -94,6 +100,33 @@ canvas {
   height: 1px;
   background: #fff;
   transition: width .5s ease-out;
+}
+
+.navigation__dropdown {
+  cursor: default;
+}
+
+.navigation__dropdown:hover ul {
+  display: flex;
+}
+
+.navigation__dropdown ul {
+  position: absolute;
+  top: 50px;
+  left: -10px;
+  display: none;
+  flex-direction: column;
+  padding: 10px;
+  min-width: 100%;
+  background: #1e1e1e;
+}
+
+.navigation__dropdown ul li {
+  height: auto;
+}
+
+.navigation__dropdown ul a {
+  cursor: pointer;
 }
 
 .page__body {

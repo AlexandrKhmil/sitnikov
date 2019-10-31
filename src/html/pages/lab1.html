@@ -20,67 +20,12 @@
       <!-- Input data -->
       <h4>Входные данные</h4> 
       
-      <%= _.template(require('./../components/input-arr.html').default)({ 
-        values : [[0, 1], [2,3], [3,2], [5,5]] }) %> 
+      <%= _.template(require('./../components/input-arr.html').default)(
+        { values : [[0, 1], [2,3], [3,2], [5,5]] }) %> 
 
       <h4>Управление графиком</h4>
+      <%= _.template(require('./../components/canvas-setup.html').default)() %> 
 
-      <div class="controls"> 
-        <table class="table">
-          <thead>
-            <tr>
-              <th>Параметр</th>
-              <th>Значение</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Ширина</td>
-              <td><input type="number" value="5000"/></td>
-            </tr>
-            <tr>
-              <td>Высота</td>
-              <td><input type="number" value="5000"/></td>
-            </tr>
-          </tbody>
-        </table> 
-
-        <table class="table">
-          <thead>
-            <tr>
-              <th>Параметр</th>
-              <th>Значение</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Увеличение по Х</td>
-              <td><input type="number" value="750"/></td>
-            </tr>
-            <tr>
-              <td>Увеличение по Y</td>
-              <td><input type="number" value="750"/></td>
-            </tr>
-          </tbody> 
-        </table>
-
-        <table class="table">
-          <thead>
-            <tr>
-              <th>Параметр</th>
-              <th>Значение</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                Шаг:
-              </td>
-              <td><input type="number" value="0.1" step="0.1" /></td>
-            </tr>
-          </tbody>
-        </table>
-      </div> 
     </div>
   </div> 
 </main>
