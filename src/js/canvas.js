@@ -34,7 +34,7 @@ export class Canvas {
     this.ctx.closePath()
   }
 
-  draw(arr, color, scale, lineWidth) {
+  drawLines(arr, color, scale, lineWidth) {
     // Drawing settings
     this.ctx.lineWidth = lineWidth
     this.ctx.setLineDash([])
@@ -50,4 +50,21 @@ export class Canvas {
     }) 
     this.ctx.closePath()
   }
-} 
+
+  drawDots(arr, color, scale){
+    // Drawing settings
+    //this.ctx.lineWidth = lineWidth
+    this.ctx.setLineDash([])
+    this.ctx.strokeStyle = color 
+    this.ctx.fillStyle = color  
+    
+    arr.forEach((item, index) => { 
+      this.ctx.beginPath()   
+      this.ctx.arc(item[0] * scale[0], this.canvas.height - item[1] * scale[1], 25, 0, 2 * Math.PI)
+      this.ctx.fill()
+      this.ctx.stroke()
+      this.ctx.closePath()
+    }) 
+    
+  } 
+}  

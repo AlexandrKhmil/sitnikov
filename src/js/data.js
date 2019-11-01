@@ -5,7 +5,7 @@ export let readingData = () => {
         ? [...item.children][0].tagName == 'INPUT' && [...item.children][0].getAttribute('type') == 'number'
         : false
     }).map((item) => {
-      return [...item.children][0].value
+      return parseFloat([...item.children][0].value)
     })
   }).reduce((prev, row, rowIndex) => { 
     return (rowIndex != 0) 
