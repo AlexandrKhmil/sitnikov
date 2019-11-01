@@ -19,9 +19,9 @@ let lagrangeDraw = () => {
 
   // Drawing
   let myCanvas = new Canvas(document.querySelector('canvas')) 
-  myCanvas.grid([750, 750]) 
-  myCanvas.drawDots(data, '#000000', [750, 750], 10)
-  myCanvas.drawLines(approximatedArray, '#ff0000', [750, 750], 10) 
+  myCanvas.grid([1, 1]) 
+  //myCanvas.drawDots(data, '#000000', [750, 750], 10)
+  //myCanvas.drawLines(approximatedArray, '#ff0000', [750, 750], 10) 
 }
 
 let newtonDraw = () => {
