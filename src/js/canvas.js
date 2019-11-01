@@ -35,19 +35,19 @@ export class Canvas {
   }
 
   draw(arr, color, scale, lineWidth) {
+    // Drawing settings
     this.ctx.lineWidth = lineWidth
     this.ctx.setLineDash([])
+    this.ctx.strokeStyle = color 
 
-    this.ctx.beginPath()
-    this.ctx.strokeStyle = color
-  
+    // Drawing
+    this.ctx.beginPath()  
     arr.forEach((item, index) => { 
       (index == 0) 
         ? this.ctx.moveTo(item[0] * scale[0], this.canvas.height - item[1] * scale[1]) 
         : this.ctx.lineTo(item[0] * scale[0], this.canvas.height - item[1] * scale[1])
       this.ctx.stroke()
-    })
-  
+    }) 
     this.ctx.closePath()
   }
 } 
