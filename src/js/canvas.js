@@ -15,6 +15,8 @@ export class Canvas {
     this.ctx.font = `16px Arial`  
     this.ctx.setTransform(scale[0], 0, 0, scale[1], 0, this.canvas.height * (1 - scale[1]))
 
+    this.ctx.beginPath()
+
     // Draw X's Lines
     for(let i = this.scaleUnit; i < this.canvas.width * (1/scale[0]); i += this.scaleUnit) {
       this.ctx.moveTo(i, 0 - this.canvas.height * (1/scale[1] - 1)) 
@@ -30,6 +32,8 @@ export class Canvas {
       this.ctx.fillText((this.canvas.width - i) / this.scaleUnit, 3, i - 3) 
       this.ctx.stroke()
     }  
+
+    this.ctx.closePath()
   }
 
   drawDots(arr, color, scale) {
@@ -38,7 +42,9 @@ export class Canvas {
     this.ctx.setLineDash([])
     this.ctx.strokeStyle = color 
     this.ctx.fillStyle = color  
+    this.ctx.setTransform(scale[0], 0, 0, scale[1], 0, this.canvas.height * (1 - scale[1]))
     
+    // Draw Dots
     arr.forEach((item, index) => { 
       this.ctx.beginPath()
       this.ctx.arc(
