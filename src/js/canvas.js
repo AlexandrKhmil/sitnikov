@@ -15,24 +15,22 @@ export class Canvas {
     this.ctx.font = `16px Arial`  
     this.ctx.setTransform(scale[0], 0, 0, scale[1], 0, this.canvas.height * (1 - scale[1]))
 
-    this.ctx.beginPath()
-
+    // Drawing
+    this.ctx.beginPath() 
     // Draw X's Lines
     for(let i = this.scaleUnit; i < this.canvas.width * (1/scale[0]); i += this.scaleUnit) {
       this.ctx.moveTo(i, 0 - this.canvas.height * (1/scale[1] - 1)) 
       this.ctx.lineTo(i, this.canvas.height )
       this.ctx.fillText(i / this.scaleUnit, i + 3, this.canvas.height - 5) 
       this.ctx.stroke()
-    } 
-
+    }  
     // Draw Y's Lines
     for(let i = this.scaleUnit - this.canvas.height * (1/scale[1] - 1); i < this.canvas.height; i += this.scaleUnit) {
       this.ctx.moveTo(0, i) 
       this.ctx.lineTo(this.canvas.width * (1/scale[0]), i)
       this.ctx.fillText((this.canvas.width - i) / this.scaleUnit, 3, i - 3) 
       this.ctx.stroke()
-    }  
-
+    }   
     this.ctx.closePath()
   }
 
@@ -57,18 +55,20 @@ export class Canvas {
     })  
   } 
 
-  drawLines(arr, color, scale, lineWidth) {
+  drawLines(arr, color, scale) {
     // Drawing settings
-    this.ctx.lineWidth = lineWidth
+    this.ctx.lineWidth = 1
     this.ctx.setLineDash([])
     this.ctx.strokeStyle = color 
+    this.ctx.fillStyle = color  
+    this.ctx.setTransform(scale[0], 0, 0, scale[1], 0, this.canvas.height * (1 - scale[1]))
 
     // Drawing
     this.ctx.beginPath()  
     arr.forEach((item, index) => { 
       (index == 0) 
-        ? this.ctx.moveTo(item[0] * scale[0], this.canvas.height - item[1] * scale[1]) 
-        : this.ctx.lineTo(item[0] * scale[0], this.canvas.height - item[1] * scale[1])
+        ? this.ctx.moveTo(item[0] * this.scaleUnit, this.canvas.height - item[1] * this.scaleUnit) 
+        : this.ctx.lineTo(item[0] * this.scaleUnit, this.canvas.height - item[1] * this.scaleUnit)
       this.ctx.stroke()
     }) 
     this.ctx.closePath()
