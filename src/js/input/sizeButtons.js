@@ -18,7 +18,8 @@ export let controllInit = () => {
    
   document.querySelector('.args-count__rem').addEventListener('click', () => {  
     document.querySelectorAll('.args-table tr').forEach((item) => {
-      (item.childElementCount > 2) ? item.removeChild([...item.children].pop()) : '' 
+      if (item.childElementCount > 2) 
+        item.removeChild([...item.children].pop())
     }) 
   })
 
@@ -27,12 +28,11 @@ export let controllInit = () => {
   })
  
   document.addEventListener('click', (e) => { 
-    ([...e.target.classList].includes('args-value__more')) 
-      ? [...e.target.parentElement.parentElement.children].find((item) => [...item.classList].includes('args__input')).value++ 
-      : ''
-    ([...e.target.classList].includes('args-value__less')) 
-      ? [...e.target.parentElement.parentElement.children].find((item) => [...item.classList].includes('args__input')).value--
-      : ''
+    if ([...e.target.classList].includes('args-value__more')) 
+      [...e.target.parentElement.parentElement.children].find((item) => [...item.classList].includes('args__input')).value++ 
+
+    if ([...e.target.classList].includes('args-value__less')) 
+      [...e.target.parentElement.parentElement.children].find((item) => [...item.classList].includes('args__input')).value--
   })
 }
  
