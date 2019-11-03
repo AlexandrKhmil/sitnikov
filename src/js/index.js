@@ -3,6 +3,7 @@ import {readingData} from './data.js'
 
 import {Lagrange} from './lab1/lagrange.js'
 import {Newton} from './lab1/newton.js'
+import {Spline} from './lab1/spline.js'
 
 import {controllInit} from './input/sizeButtons.js'
 
@@ -25,6 +26,7 @@ let lagrangeDraw = () => {
 }
 
 let newtonDraw = () => {
+  // Reading Data
   let data = readingData() 
   
   // Calculate Newton
@@ -39,7 +41,18 @@ let newtonDraw = () => {
 }
 
 let splineDraw = () => {
-  console.log('start')
+  // Reading Data
+  let data = readingData() 
+
+  // Calculate Spline
+  let spline = new Spline(data) 
+  let approximatedArray = spline.approximation(data[0][0], data[data.length - 1][0], 0.1)  
+    
+  // Drawing
+  let myCanvas = new Canvas(document.querySelector('canvas')) 
+  myCanvas.grid([1, 1]) 
+  myCanvas.drawDots(data, '#000000', [1, 1])
+  myCanvas.drawLines(approximatedArray, '#ff0000', [1, 1]) 
 }
 
 /* ********************************************************************* */
@@ -72,7 +85,9 @@ let siteNameSpace = {
       controllInit() 
       splineDraw()
     },
-    start : () => {}
+    start : () => {
+      splineDraw()
+    }
   }
 } 
 
