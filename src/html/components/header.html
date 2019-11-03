@@ -16,10 +16,11 @@
         <nav class="navigation">
           <ul class="navigation__list">
             <% [{title : 'Home', href : '/'}, 
-                {title : 'Lab1', sublink : [{title : 'Лагранж', href : '/lab1.html'}, 
-                                            {title : 'Ньютон', href : '/newton-polynomial.html'}] }].map((item) => {
-                  if (item['href'] != undefined) { %>
-                    <li><a href="<%- item['href'] %>"><%- item['title'] %></a></li>
+                {title : 'Lab1', sublink : [{title : 'Лагранж', href : '/lagrange.html'}, 
+                                            {title : 'Ньютон', href : '/newton-polynomial.html'},
+                                            {title : 'Сплайн', href : '/spline.html'}] }].map((item) => {
+                  if (item['href'] != undefined) { 
+                    %><li><a href="<%- item['href'] %>"><%- item['title'] %></a></li>
                   <% } else { %> 
                     <li class="navigation__dropdown"><%- item['title'] %>
                       <ul>

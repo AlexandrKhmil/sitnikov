@@ -1,0 +1,29 @@
+<%= _.template(require('./../components/header.html').default)({
+    title: 'MTZABD Lab1',
+    page: 'spline'
+  }) %>
+  
+  <main class="page">
+    <div class="page__container">
+      <!-- Head -->
+      <div class="page__head">
+        <h1>Лабораторная работа #1</h1>
+        <h3>Апроксимация функций. Интерполяция Ньютона</h3>
+      </div> 
+  
+      <!-- Body -->
+      <div class="page__body">
+        <!-- Canvas -->
+        <h2>Main Part</h2>
+        <canvas></canvas>
+
+        <!-- Input data -->
+        <h4>Входные данные</h4>  
+        <%= _.template(require('./../components/input-arr.html').default)(
+          { values : [[0, 1.2715], [0.2,2.4652], [0.4,3.6443], [0.6,4.8095], [0.8,5.9614] , [1,7.1005]] }) %> 
+        
+      </div>
+    </div> 
+  </main>
+  
+<%= _.template(require('./../components/footer.html').default)(data) %>

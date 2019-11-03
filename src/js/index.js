@@ -38,6 +38,10 @@ let newtonDraw = () => {
   myCanvas.drawLines(approximatedArray, '#ff0000', [1, 1]) 
 }
 
+let splineDraw = () => {
+  console.log('start')
+}
+
 /* ********************************************************************* */
 
 let siteNameSpace = {
@@ -45,7 +49,7 @@ let siteNameSpace = {
     onload : () => {},
     start  : () => {}
   },
-  lab1 : {
+  lagrange : {
     onload : () => {
       controllInit() 
       lagrangeDraw()
@@ -62,6 +66,13 @@ let siteNameSpace = {
     start : () => {
       newtonDraw()
     }
+  },
+  spline : {
+    onload : () => {
+      controllInit() 
+      splineDraw()
+    },
+    start : () => {}
   }
 } 
 
