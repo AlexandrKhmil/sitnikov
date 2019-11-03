@@ -31,6 +31,16 @@ canvas {
   box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.75);
 }
 
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
 .container,
 .header__container,
 .page__container {
@@ -110,6 +120,11 @@ canvas {
   display: flex;
 }
 
+.navigation__dropdown:last-child ul {
+  left: auto;
+  right: -10px;
+}
+
 .navigation__dropdown ul {
   position: absolute;
   top: 50px;
@@ -158,17 +173,12 @@ canvas {
   text-align: center;
 }
 
-.blue-table td input {
-  padding: 0 0 0 17px;
-  width: 75px;
-  border: none;
-  text-align: center;
-}
-
 .blue-btn {
   display: flex;
+  padding: 0;
   border: none;
   border-bottom: 1px solid #000D0D;
+  background-color: #a0c8c8;
   cursor: pointer;
   transition: background .5s ease-out;
 }
@@ -191,11 +201,24 @@ canvas {
   align-items: center;
 }
 
+.args__td {
+  display: flex;
+}
+
+.args__input {
+  padding: 0 0 0 20px;
+  width: 75px;
+  border: none;
+  text-align: center;
+}
+
 .args__play {
   width: 50px;
-  height: 50px;
+  height: 70px;
   border-radius: 10%;
-  background: #a0c8c8 url("../img/play.svg") no-repeat center;
+  background-image: url("../img/play.svg");
+  background-repeat: no-repeat;
+  background-position: center;
   background-size: 10px;
 }
 
@@ -212,6 +235,9 @@ canvas {
   width: 30px;
   height: 30px;
   border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 15px;
 }
 
 .args-count__rem:last-child,
@@ -220,13 +246,33 @@ canvas {
 }
 
 .args-count__rem {
-  background: #a0c8c8 url("../img/minus.svg") no-repeat center;
-  background-size: 15px;
+  background-image: url("../img/minus.svg");
 }
 
 .args-count__add {
-  background: #a0c8c8 url("../img/plus.svg") no-repeat center;
-  background-size: 15px;
+  background-image: url("../img/plus.svg");
+}
+
+.args-value {
+  display: flex;
+  flex-direction: column;
+}
+
+.args-value__more,
+.args-value__less {
+  height: 10px;
+  width: 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 10px;
+}
+
+.args-value__more {
+  background-image: url("../img/more.svg");
+}
+
+.args-value__less {
+  background-image: url("../img/less.svg");
 }
 
 .controls {

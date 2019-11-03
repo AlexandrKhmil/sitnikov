@@ -16,16 +16,18 @@ export let controllInit = () => {
     }) 
   })
    
-  document.querySelector('.args-count__rem').addEventListener('click', () => {
+  document.querySelector('.args-count__rem').addEventListener('click', () => {  
     document.querySelectorAll('.args-table tr').forEach((item) => {
-      (item.childElementCount > 2) ? item.removeChild(item.lastChild) : ''
-    })
+      if (item.childElementCount > 2) {
+        item.removeChild([...item.children].pop())
+      }
+    }) 
   })
 
   document.querySelector('.args__play').addEventListener('click', () => { 
     document.dispatchEvent(new Event('argsInputed')) 
   })
-
+ 
   document.addEventListener('click', (e) => { 
     if ([...e.target.classList].includes('args-value__more')) { 
       [...e.target.parentElement.parentElement.children].find((item) => [...item.classList].includes('args__input')).value++

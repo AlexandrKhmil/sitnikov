@@ -9,7 +9,7 @@
 
     <title>MTZABD Lab1</title>
   </head>
-  <body id="lab1">
+  <body id="newton">
     <header class="header">
       <div class="header__container">
         <a class="logo" href="/">MTZABD</a>
@@ -32,24 +32,24 @@
         </nav>
       </div>
     </header> 
+  
+  <main class="page">
+    <div class="page__container">
+      <!-- Head -->
+      <div class="page__head">
+        <h1>Лабораторная работа #1</h1>
+        <h3>Апроксимация функций. Интерполяция</h3>
+      </div> 
+  
+      <!-- Body -->
+      <div class="page__body">
+        <!-- Canvas -->
+        <h2>Main Part</h2>
+        <canvas></canvas>
 
-<main class="page">
-  <div class="page__container">
-    <!-- Head -->
-    <div class="page__head">
-      <h1>Лабораторная работа #1</h1>
-      <h3>Апроксимация функций. Интерполяция</h3>
-    </div> 
-
-    <!-- Body -->
-    <div class="page__body">
-      <!-- Canvas -->
-      <h2>Main Part</h2>
-      <canvas></canvas>
-      
-      <!-- Input data -->
-      <h4>Входные данные</h4>  
-      <!-- Used for input data --> 
+        <!-- Input data -->
+        <h4>Входные данные</h4>  
+        <!-- Used for input data --> 
 <div class="args"> 
   <!-- Table -->
   <table class="blue-table args-table">
@@ -64,6 +64,10 @@
           <th>3</th>
         
           <th>4</th>
+        
+          <th>5</th>
+        
+          <th>6</th>
         
       </tr>
     </thead>
@@ -83,7 +87,7 @@
         
           <td>
             <div class="args__td">
-              <input class="args__input" type="number" value="2" step="any" />
+              <input class="args__input" type="number" value="0.2" step="any" />
               <div class="args-value">
                 <input class="blue-btn args-value__more" type="submit" value="" />
                 <input class="blue-btn args-value__less" type="submit" value="" />
@@ -93,7 +97,7 @@
         
           <td>
             <div class="args__td">
-              <input class="args__input" type="number" value="3" step="any" />
+              <input class="args__input" type="number" value="0.4" step="any" />
               <div class="args-value">
                 <input class="blue-btn args-value__more" type="submit" value="" />
                 <input class="blue-btn args-value__less" type="submit" value="" />
@@ -103,7 +107,27 @@
         
           <td>
             <div class="args__td">
-              <input class="args__input" type="number" value="5" step="any" />
+              <input class="args__input" type="number" value="0.6" step="any" />
+              <div class="args-value">
+                <input class="blue-btn args-value__more" type="submit" value="" />
+                <input class="blue-btn args-value__less" type="submit" value="" />
+              </div>
+            </div>
+          </td>
+        
+          <td>
+            <div class="args__td">
+              <input class="args__input" type="number" value="0.8" step="any" />
+              <div class="args-value">
+                <input class="blue-btn args-value__more" type="submit" value="" />
+                <input class="blue-btn args-value__less" type="submit" value="" />
+              </div>
+            </div>
+          </td>
+        
+          <td>
+            <div class="args__td">
+              <input class="args__input" type="number" value="1" step="any" />
               <div class="args-value">
                 <input class="blue-btn args-value__more" type="submit" value="" />
                 <input class="blue-btn args-value__less" type="submit" value="" />
@@ -117,7 +141,7 @@
         
           <td>
             <div class="args__td">
-              <input class="args__input" type="number" value="1" step="any" />
+              <input class="args__input" type="number" value="1.2715" step="any" />
               <div class="args-value">
                 <input class="blue-btn args-value__more" type="submit" value="" />
                 <input class="blue-btn args-value__less" type="submit" value="" />
@@ -126,7 +150,7 @@
           </td>
           <td>
             <div class="args__td">
-              <input class="args__input" type="number" value="3" step="any" />
+              <input class="args__input" type="number" value="2.4652" step="any" />
               <div class="args-value">
                 <input class="blue-btn args-value__more" type="submit" value="" />
                 <input class="blue-btn args-value__less" type="submit" value="" />
@@ -135,7 +159,7 @@
           </td>
           <td>
             <div class="args__td">
-              <input class="args__input" type="number" value="2" step="any" />
+              <input class="args__input" type="number" value="3.6443" step="any" />
               <div class="args-value">
                 <input class="blue-btn args-value__more" type="submit" value="" />
                 <input class="blue-btn args-value__less" type="submit" value="" />
@@ -144,7 +168,25 @@
           </td>
           <td>
             <div class="args__td">
-              <input class="args__input" type="number" value="5" step="any" />
+              <input class="args__input" type="number" value="4.8095" step="any" />
+              <div class="args-value">
+                <input class="blue-btn args-value__more" type="submit" value="" />
+                <input class="blue-btn args-value__less" type="submit" value="" />
+              </div>
+            </div>
+          </td>
+          <td>
+            <div class="args__td">
+              <input class="args__input" type="number" value="5.9614" step="any" />
+              <div class="args-value">
+                <input class="blue-btn args-value__more" type="submit" value="" />
+                <input class="blue-btn args-value__less" type="submit" value="" />
+              </div>
+            </div>
+          </td>
+          <td>
+            <div class="args__td">
+              <input class="args__input" type="number" value="7.1005" step="any" />
               <div class="args-value">
                 <input class="blue-btn args-value__more" type="submit" value="" />
                 <input class="blue-btn args-value__less" type="submit" value="" />
@@ -163,68 +205,12 @@
   <!-- Play -->
   <input class="blue-btn args__play" type="submit" value="" />
 </div> 
-
-      <h4>Управление графиком</h4>
-      <div class="controls"> 
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Параметр</th>
-          <th>Значение</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Ширина</td>
-          <td><input type="number" value="5000"/></td>
-        </tr>
-        <tr>
-          <td>Высота</td>
-          <td><input type="number" value="5000"/></td>
-        </tr>
-      </tbody>
-    </table> 
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Параметр</th>
-          <th>Значение</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Увеличение по Х</td>
-          <td><input type="number" value="750"/></td>
-        </tr>
-        <tr>
-          <td>Увеличение по Y</td>
-          <td><input type="number" value="750"/></td>
-        </tr>
-      </tbody> 
-    </table>
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Параметр</th>
-          <th>Значение</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>
-            Шаг:
-          </td>
-          <td><input type="number" value="0.1" step="0.1" /></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>  
-
-    </div>
-  </div> 
-</main>
-
-<footer class="footer">
+        
+      </div>
+    </div> 
+  </main>
+  
+  <footer class="footer">
 
 </footer>
 
