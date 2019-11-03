@@ -27,19 +27,15 @@ let lagrangeDraw = () => {
 let newtonDraw = () => {
   let data = readingData() 
   
-  // calculate Newton
+  // Calculate Newton
   let newton = new Newton(data) 
-  let approximatedArray = newton.qwerty(0, 1, 0.1)
-
-  console.log(approximatedArray)
-  
-  //newton.work(0.1)
+  let approximatedArray = newton.qwerty(data[0][0], data[data.length - 1][0], 0.1) 
 
   // Drawing
   let myCanvas = new Canvas(document.querySelector('canvas')) 
-  myCanvas.grid([750, 750]) 
-  myCanvas.drawLine(data, '#000000', [4500, 500], 10)
-  myCanvas.drawLine(approximatedArray, '#ff0000', [4500, 500], 10) 
+  myCanvas.grid([1, 1]) 
+  myCanvas.drawDots(data, '#000000', [1, 1])
+  myCanvas.drawLines(approximatedArray, '#ff0000', [1, 1]) 
 }
 
 /* ********************************************************************* */
@@ -63,7 +59,9 @@ let siteNameSpace = {
       controllInit() 
       newtonDraw()
     },
-    start : () => {}
+    start : () => {
+      newtonDraw()
+    }
   }
 } 
 

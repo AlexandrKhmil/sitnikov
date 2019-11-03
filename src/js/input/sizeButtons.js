@@ -6,7 +6,7 @@ export let controllInit = () => {
           ? item.appendChild(document.createElement('th')).appendChild(
             document.createTextNode(item.childElementCount - 1)) 
           : item.appendChild(document.createElement('td')).appendChild(
-            Object.assign(document.createElement('input'), {type : 'number', value : 1}))
+            Object.assign(document.createElement('input'), {type : 'number', value : 1, step : 'any'}))
     }) 
   })
   

@@ -1,21 +1,33 @@
 export class Newton {
   constructor(data) {
     this.data = data
-    this.diff = this.calculateDiff()
+    this.diff = this.calculateDiff(this.data.map((item) => { return item[1]}))
     this.y0 = []
-  }
+  } 
 
-  calculateDiff() {
-    let result = [this.data.map((item) => { return item[1]})]
-    for(let i = 0; i < result[0].length - 1; i++) {
-      result.push(result[i].map((item, index, array) => { 
+  calculateDiff(arr) {
+    return (arr.length > 1) 
+      ? [arr[0], ...this.calculateDiff(arr.map((item, index, array) => { 
         return (index != array.length - 1) 
           ? array[index + 1] - item
           : null
-      }).filter((item) => { return item != null } ))
-    }
-    return result
+        }).filter((item) => { return item != null } ))]
+      : arr;
   }
+
+  /*
+    [1,2,3,4,5] => [1,1,1,1]
+
+    .map((item, index, array) => { 
+      return (index != array.length - 1) 
+        ? array[index + 1] - item
+        : null
+    }).filter((item) => { return item != null } ))
+  */
+
+  calculate(x) {}
+
+  approximation(startValue, finalValue, step) {}
 
   work(x) { 
     this.diff.forEach((item, index) => { (index != 0) ? this.y0.push(item[0]) : null})  
@@ -30,17 +42,18 @@ export class Newton {
         return prev 
           + multQ * item / factorial(index + 1)
       }, 0) 
-
-    console.log('e = ', e)
+ 
     return e
   }
 
   qwerty(startValue, finalValue, step) {
+    /*
     return [...new Array(Math.ceil(Math.abs(finalValue - startValue) / step)).fill(startValue).map((item, index) => { 
       return item + index * step
     }), finalValue].map((item) => { 
       return [item, this.work(item)]
     })
+    */
   }
 }
 
