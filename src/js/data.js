@@ -1,11 +1,11 @@
 export let readingData = () => {
   return [...document.querySelectorAll('.args tbody tr')].map((row) => { 
-    return [...row.children].filter((item) => {
+    return [...row.children].filter((item) => { 
       return ([...item.children][0] != undefined) 
-        ? [...item.children][0].tagName == 'INPUT' && [...item.children][0].getAttribute('type') == 'number'
+        ? item.children[0].children[0].tagName == 'INPUT' && item.children[0].children[0].getAttribute('type') == 'number'
         : false
     }).map((item) => {
-      return parseFloat([...item.children][0].value)
+      return parseFloat(item.children[0].children[0].value)
     })
   }).reduce((prev, row, rowIndex) => { 
     return (rowIndex != 0) 
