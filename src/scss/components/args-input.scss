@@ -1,11 +1,23 @@
 .args { 
   display: flex;
   align-items: center; 
+  &__td {
+    display: flex;
+  }
+
+  &__input {
+    padding: 0 0 0 20px;
+    width: 75px;
+    border: none;
+    text-align: center;
+  }
   &__play { 
     width: 50px;
     height: 70px; 
-    border-radius: 10%;
-    background: $lightTeal $play no-repeat center;
+    border-radius: 10%; 
+    background-image: $play;
+    background-repeat: no-repeat;
+    background-position: center;
     background-size: 10px;   
   }
 }
@@ -20,16 +32,36 @@
     width: 30px;
     height: 30px;
     border-radius: 50%;  
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 15px;
     &:last-child {
       margin: 0;
     } 
   } 
-  &__rem {
-    background: $lightTeal $minus no-repeat center;
-    background-size: 15px;
+  &__rem { 
+    background-image: $minus;
   } 
-  &__add {
-    background: $lightTeal $plus no-repeat center;
-    background-size: 15px;
+  &__add { 
+    background-image: $plus; 
   }
-}  
+} 
+
+.args-value {
+  display: flex;
+  flex-direction: column;
+  &__more, &__less {
+    height: 10px;
+    width: 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 10px;
+  }
+
+  &__more {
+    background-image: $more; 
+  }
+  &__less {
+    background-image: $less;
+  }
+}

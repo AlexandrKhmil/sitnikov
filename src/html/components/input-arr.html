@@ -14,13 +14,29 @@
       <tr>
         <td>X</td>
         <% values.forEach((item) => { %>
-          <td><input type="number" value="<%- item[0] %>" step="any" /></td>
+          <td>
+            <div class="args__td">
+              <input class="args__input" type="number" value="<%- item[0] %>" step="any" />
+              <div class="args-value">
+                <input class="blue-btn args-value__more" type="submit" value="" />
+                <input class="blue-btn args-value__less" type="submit" value="" />
+              </div>
+            </div>
+          </td>
         <% }) %>
       </tr>
       <tr>
         <td>Y</td>
         <% values.forEach((item) => { %>
-          <td><input type="number" value="<%- item[1] %>" step="any" /></td>
+          <td>
+            <div class="args__td">
+              <input class="args__input" type="number" value="<%- item[0] %>" step="any" />
+              <div class="args-value">
+                <input class="blue-btn args-value__more" type="submit" value="" />
+                <input class="blue-btn args-value__less" type="submit" value="" />
+              </div>
+            </div>
+          </td>
         <% }) %>
       </tr>
     </tbody>

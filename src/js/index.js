@@ -29,7 +29,7 @@ let newtonDraw = () => {
   
   // Calculate Newton
   let newton = new Newton(data) 
-  let approximatedArray = newton.qwerty(data[0][0], data[data.length - 1][0], 0.1) 
+  let approximatedArray = newton.approximation(data[0][0], data[data.length - 1][0], 0.1) 
 
   // Drawing
   let myCanvas = new Canvas(document.querySelector('canvas')) 

@@ -64,6 +64,10 @@
     &:hover ul {
       display: flex;
     }
+    &:last-child ul {
+      left: auto;
+      right: -10px;
+    }
     ul {
       position: absolute;
       top: 50px;

@@ -1,7 +1,9 @@
 .blue-btn {
   display: flex;
+  padding: 0;
   border: none;
   border-bottom: 1px solid $darkTeal;
+  background-color: $lightTeal;
   cursor: pointer; 
   transition: background $time ease-out;
   &:hover {
