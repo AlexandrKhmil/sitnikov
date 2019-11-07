@@ -1,60 +1,70 @@
 import {Canvas} from './canvas.js'
 import {readingData} from './data.js'
 
-import {Lagrange} from './lab1/lagrange.js'
-import {Newton} from './lab1/newton.js'
-
-import {Spline} from './lab1/spline.js'
-
-//import {naturalLog} from './natural.js/index.js'
+import {Lagrange} from './lab1/interpolationMethods/lagrange'
+import {Newton} from './lab1/interpolationMethods/newton' 
+import {Spline} from './lab1/interpolationMethods/spline' 
 
 import {controllInit} from './input/sizeButtons.js'
+
+import {outputResult, outputValues} from './html/outputTable' 
  
 /* ********************************************************************* */
-/* Функции которые совмещают работу классов */
-
-let result = (arr) => {
-  document.querySelector('.result')
-    .appendChild(Object.assign(document.createElement('div'), { className : 'result__list'}))
-  let e = document.querySelector('.result__list:last-child')
-  arr.forEach((item,index) => {
-    e.appendChild(Object.assign(document.createElement('div'), { className : 'result__item'}))
-      .appendChild(document.createTextNode(`x[${index}] = [ ${item[0].toFixed(1)}; ${item[1].toFixed(3)}]`))
-  })
+/* Функции которые совмещают работу классов */  
+let naturalLog = (start, final, step) => {
+  return [...new Array(Math.ceil(Math.abs(final - start) / step)).fill(start)
+    .map((item, index) => item + index * step), final]
+    .map((point) => [point, Math.log(Math.pow(point, 2) + point + 1)])
 }
 
-let resultDiff = (arr) => {
-  document.querySelector('.result')
-    .appendChild(Object.assign(document.createElement('div'), { className : 'result__list'}))
-  let e = document.querySelector('.result__list:last-child')
-  arr.forEach((item,index) => {
-    e.appendChild(Object.assign(document.createElement('div'), { className : 'result__item'}))
-      .appendChild(document.createTextNode(`diff[${index}] = [ ${item.toFixed(5)}]`))
-  })
-}
+let comparison = () => {
+  // Get data from original function
+  let naturalArray = naturalLog(0, 10, 0.1) 
+  let data = [naturalArray[0], naturalArray[10], naturalArray[20], naturalArray[30], naturalArray[40]]
 
-let difference = (farr, sarr) => {
-  return farr.map((item,index) => {
-    return Math.abs(item[1] - sarr[index][1])
-  })
-}
+  // Get data for methods
+  let lagrangeArray = new Lagrange(data).getLine(data[0][0], data[data.length - 1][0], 0.1)
+  let diffLagrangeArray = lagrangeArray.map((item, index) => 
+    [...item, Math.abs(item[1] - naturalArray[index][1])]) 
 
-let getExtremums = (arr, text) => {
-  console.log('ext arr =', arr) 
-  document.querySelector('.result')
-    .appendChild(Object.assign(document.createElement('div'), { className : 'result__list'}))
-  let e = document.querySelector('.result__list:last-child')
-  .appendChild(Object.assign(document.createElement('div'), { className : 'result__item'}))
-      .appendChild(document.createTextNode(`${text}`))
-    .parentElement.parentElement
-    .appendChild(Object.assign(document.createElement('div'), { className : 'result__item'}))
-      .appendChild(document.createTextNode(`Max = [${arr.reduce((prev, item) => {return (item < prev) ? prev : item}, 0)}]`))
-    .parentElement.parentElement
-    .appendChild(Object.assign(document.createElement('div'), { className : 'result__item'}))
-      .appendChild(document.createTextNode(`Min = [${arr.reduce((prev, item) => {return (item > prev) ? prev : item}, 0)}]`))
-    .parentElement.parentElement
-      .appendChild(Object.assign(document.createElement('div'), { className : 'result__item'}))
-        .appendChild(document.createTextNode(`Среднее = [${arr.reduce((prev, item) => {return prev + item}, 0) / arr.length}]`))
+  let newtonArray = new Newton(data).getLine(data[0][0], data[data.length - 1][0], 0.1)
+  let diffNewtonArray = newtonArray.map((item, index) => 
+    [...item, Math.abs(item[1] - naturalArray[index][1])]) 
+
+  let splineArray = new Spline(data).getLine(data[0][0], data[data.length - 1][0], 0.1)
+  let diffSplineArray = splineArray.map((item, index) => 
+    [...item, Math.abs(item[1] - naturalArray[index][1])]) 
+
+  // Output arr in tables
+  outputResult(diffLagrangeArray, document.querySelector('.output-table-lagrange'))
+  outputResult(diffNewtonArray, document.querySelector('.output-table-newton'))
+  outputResult(diffSplineArray, document.querySelector('.output-table-spline'))
+
+  // Output values in tables  
+  outputValues({
+    'output-table-lagrange-values__max' : Math.max(...diffLagrangeArray.map(item => item[2])),
+    'output-table-lagrange-values__min' : Math.min(...diffLagrangeArray.map(item => item[2])),
+    'output-table-lagrange-values__avg' : diffLagrangeArray.map(item => item[2]).reduce((prev, item, index, arr) => prev + item / arr.length, 0)
+  }, document.querySelector('.output-table-lagrange-values')) 
+  outputValues({
+    'output-table-newton-values__max' : Math.max(...diffNewtonArray.map(item => item[2])),
+    'output-table-newton-values__min' : Math.min(...diffNewtonArray.map(item => item[2])),
+    'output-table-newton-values__avg' : diffNewtonArray.map(item => item[2]).reduce((prev, item, index, arr) => prev + item / arr.length, 0)
+  }, document.querySelector('.output-table-newton-values')) 
+  outputValues({
+    'output-table-spline-values__max' : Math.max(...diffSplineArray.map(item => item[2])),
+    'output-table-spline-values__min' : Math.min(...diffSplineArray.map(item => item[2])),
+    'output-table-spline-values__avg' : diffSplineArray.map(item => item[2]).reduce((prev, item, index, arr) => prev + item / arr.length, 0)
+  }, document.querySelector('.output-table-spline-values'))
+
+  // Draw functions
+  let myCanvas = new Canvas(document.querySelector('canvas')) 
+  myCanvas.grid([1, 1])  
+  myCanvas.drawPoints(data, '#000000', [1, 1])
+  myCanvas.drawLines(naturalArray, '#000000', [1, 1]) 
+  myCanvas.drawLines(lagrangeArray, '#00ff00', [1, 1]) 
+  myCanvas.drawLines(newtonArray, '#0000ff', [1, 1]) 
+  myCanvas.drawLines(splineArray, '#ff0000', [1, 1]) 
 }
 
 let run = (method) => {
@@ -78,7 +88,7 @@ let run = (method) => {
   // Drawing 
   let myCanvas = new Canvas(document.querySelector('canvas')) 
   myCanvas.grid([1, 1]) 
-  myCanvas.drawDots(data, '#000000', [1, 1])
+  myCanvas.drawPoints(data, '#000000', [1, 1])
   myCanvas.drawLines(approximatedArray, '#ff0000', [1, 1]) 
 }
 
@@ -91,6 +101,7 @@ let siteNameSpace = {
   },
   comparison : {
     onload : () => { 
+      comparison()
     } 
   },
   lagrange : {

@@ -1,0 +1,13 @@
+.flexbox {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  &__item { 
+    flex-grow: 1;
+    margin-right: 50px;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

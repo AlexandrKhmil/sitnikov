@@ -1,0 +1,39 @@
+<% if (typeof wrapperClass !== 'undefined') { %>
+  <div class="<%- wrapperClass %>">
+<% } %>
+  <table class="blue-table 
+    <% if (typeof tableClass !== undefined) { %>
+      <%- tableClass %>
+    <% } %>">
+
+    <% if (typeof tableName !== 'undefined') { %>
+      <caption><%- tableName %></caption>
+    <% } %> 
+
+    <% if (typeof th !== 'undefined') { %>
+      <thead>
+        <tr>
+          <% th.forEach(item => { %>
+            <th><%- item %></th>
+          <% }) %> 
+        </tr>
+      </thead>
+    <% } %> 
+    <tbody>
+      <% if (typeof tdList !== 'undefined') {
+        tdList.forEach((td) => { %>
+          <tr>
+            <% td.forEach((item, index) => { %>
+              <td class="<%- (item.className !== 'undefined') ? item.className : '' %>">
+                <%- (item.text !== 'undefined') ? item.text : '' %>
+              </td>
+            <% }) %>
+          </tr>
+        <% })
+      } %>
+    </tbody>
+  </table>
+
+<% if (typeof wrapperClass !== 'undefined') { %>
+  </div>
+<% } %> 

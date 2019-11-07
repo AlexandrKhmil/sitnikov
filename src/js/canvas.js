@@ -34,7 +34,7 @@ export class Canvas {
     this.ctx.closePath()
   }
 
-  drawDots(arr, color, scale) {
+  drawPoints(arr, color, scale) {
     // Drawing settings
     this.ctx.lineWidth = 1
     this.ctx.setLineDash([])
