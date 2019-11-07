@@ -1,0 +1,23 @@
+<%= _.template(require('./../components/header.html').default)({
+    title: 'MTZABD Lab1',
+    page: 'comparison'
+  }) %>
+  
+  <main class="page">
+    <div class="page__container">
+      <!-- Head -->
+      <div class="page__head">
+        <h1>Лабораторная работа #1</h1>
+        <h3>Апроксимация функций. Интерполяция Лагранжа. Калькулятор</h3>
+      </div> 
+  
+      <!-- Body -->
+      <div class="page__body">
+        <!-- Canvas -->
+        <h2>Main Part</h2>
+        <canvas></canvas> 
+      </div>
+    </div> 
+  </main>
+  
+  <%= _.template(require('./../components/footer.html').default)(data) %>

@@ -6,7 +6,7 @@ import {Newton} from './lab1/newton.js'
 
 import {Spline} from './lab1/spline.js'
 
-import {naturalLog} from './lab1/natural.js'
+//import {naturalLog} from './natural.js/index.js'
 
 import {controllInit} from './input/sizeButtons.js'
  
@@ -88,6 +88,10 @@ let siteNameSpace = {
   home : {
     onload : () => {},
     start  : () => {}
+  },
+  comparison : {
+    onload : () => { 
+    } 
   },
   lagrange : {
     onload : () => {
