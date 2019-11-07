@@ -1,26 +1,20 @@
-export class Lagrange {
+import {Interpolation} from './interpolation'
+
+export class Lagrange extends Interpolation {
   constructor(data) {
-    this.data = data
+    super(data)
   }
 
-  calculate(x) {
-    return this.data.reduce((previousSum, item, index, array) => {
-      return previousSum 
+  getPoint(x) {
+    return this.data.reduce((previousSum, item, index, array) => 
+      previousSum 
         + item[1]
-        * array.reduce((inPrev, inItem, inIndex) => {
-			    return (index != inIndex) ? inPrev * (x - inItem[0]) : inPrev 
-        }, 1) 
-        / array.reduce((inPrev, inItem, inIndex) => {
-          return (index != inIndex) ? inPrev * (item[0] - inItem[0]) : inPrev 
-        }, 1) 
-    }, 0)
-  }
-
-  approximation(startValue, finalValue, step) {
-    return [...new Array(Math.ceil(Math.abs(finalValue - startValue) / step)).fill(startValue).map((item, index) => { 
-      return item + index * step
-    }), finalValue].map((item) => { 
-      return [item, this.calculate(item)]
-    })
+        * array.reduce((inPrev, inItem, inIndex) => 
+			      (index != inIndex) ? inPrev * (x - inItem[0]) : inPrev 
+        , 1) 
+        / array.reduce((inPrev, inItem, inIndex) => 
+          (index != inIndex) ? inPrev * (item[0] - inItem[0]) : inPrev 
+        , 1) 
+    , 0)
   }
 }

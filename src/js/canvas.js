@@ -25,10 +25,10 @@ export class Canvas {
       this.ctx.stroke()
     }  
     // Draw Y's Lines
-    for(let i = this.scaleUnit - this.canvas.height * (1/scale[1] - 1); i < this.canvas.height; i += this.scaleUnit) {
+    for(let i = this.scaleUnit; i < this.canvas.height; i += this.scaleUnit) {
       this.ctx.moveTo(0, i) 
       this.ctx.lineTo(this.canvas.width * (1/scale[0]), i)
-      this.ctx.fillText((this.canvas.width - i) / this.scaleUnit, 3, i - 3) 
+      this.ctx.fillText((this.canvas.height - i) / this.scaleUnit, 3, i - 3) 
       this.ctx.stroke()
     }   
     this.ctx.closePath()

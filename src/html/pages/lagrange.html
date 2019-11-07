@@ -8,7 +8,7 @@
     <!-- Head -->
     <div class="page__head">
       <h1>Лабораторная работа #1</h1>
-      <h3>Апроксимация функций. Интерполяция Лагранжа</h3>
+      <h3>Апроксимация функций. Интерполяция Лагранжа. Калькулятор</h3>
     </div> 
 
     <!-- Body -->
@@ -20,9 +20,7 @@
       <!-- Input data -->
       <h4>Входные данные</h4>  
       <%= _.template(require('./../components/input-arr.html').default)(
-        { values : [[0, 1], [2,3], [3,2], [5,5]] }) %> 
-
-      <div class="result"></div>
+        { values : [[0, 1], [2,3], [3,2], [5,5]] }) %>  
 
       <!-- <h4>Управление графиком</h4>
       <%= _.template(require('./../components/canvas-setup.html').default)() %> 
