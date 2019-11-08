@@ -3,11 +3,11 @@ import {readingData} from './data.js'
 
 import {Lagrange} from './lab1/interpolationMethods/lagrange'
 import {Newton} from './lab1/interpolationMethods/newton' 
-import {Spline} from './lab1/interpolationMethods/spline' 
+import {Spline} from './lab1/interpolationMethods/spline'  
 
-import {controllInit} from './input/sizeButtons.js'
-
-import {outputResult, outputValues} from './html/outputTable' 
+import {getAllowedCheckboxes} from './html/input'
+import {outputArrayInTable, outputInDocument} from './html/output' 
+import {controllInit, comparisonInit} from './html/events'
  
 /* ********************************************************************* */
 /* Функции которые совмещают работу классов */  
@@ -22,49 +22,51 @@ let comparison = () => {
   let naturalArray = naturalLog(0, 10, 0.1) 
   let data = [naturalArray[0], naturalArray[10], naturalArray[20], naturalArray[30], naturalArray[40]]
 
-  // Get data for methods
-  let lagrangeArray = new Lagrange(data).getLine(data[0][0], data[data.length - 1][0], 0.1)
-  let diffLagrangeArray = lagrangeArray.map((item, index) => 
-    [...item, Math.abs(item[1] - naturalArray[index][1])]) 
+  // Allowed methods
+  let allowedMethods = getAllowedCheckboxes()
+ 
+  new Array('lagrange', 'newton', 'spline').map(method => { return { name : method, exists : allowedMethods.includes(method)}}).forEach(method =>
+    document.querySelector(`.js-group-${method.name}`).style = (method.exists) ? '' : 'display: none' )
 
-  let newtonArray = new Newton(data).getLine(data[0][0], data[data.length - 1][0], 0.1)
-  let diffNewtonArray = newtonArray.map((item, index) => 
-    [...item, Math.abs(item[1] - naturalArray[index][1])]) 
+  // Get data for methods  
+  let methods = Object.assign({}, 
+    ...Object.entries({
+      'lagrange' : { array : new Lagrange(data).getLine(data[0][0], data[data.length - 1][0], 0.1).map(item => item.map(item => parseFloat(item.toFixed(5)))) },
+      'newton' : { array : new Newton(data).getLine(data[0][0], data[data.length - 1][0], 0.1).map(item => item.map(item => parseFloat(item.toFixed(5)))) }, 
+      'spline' : { array : new Spline(data).getLine(data[0][0], data[data.length - 1][0], 0.1).map(item => item.map(item => parseFloat(item.toFixed(5)))) }
+    }).map(method => 
+      Object({ [method[0]] : Object.assign(method[1], {'diff' : method[1].array.map((point, index) =>
+          parseFloat((Math.abs(point[1] - naturalArray[index][1]).toFixed(5))))} 
+        )
+      })
+    )
+  ) 
+    
+  // Output arrays in tables
+  allowedMethods.forEach(method =>
+    outputArrayInTable(methods[method].array.map((item, index) => [...item, methods[method].diff[index]]),
+      document.querySelector(`.output-table-${method}`), true)
+  ) 
 
-  let splineArray = new Spline(data).getLine(data[0][0], data[data.length - 1][0], 0.1)
-  let diffSplineArray = splineArray.map((item, index) => 
-    [...item, Math.abs(item[1] - naturalArray[index][1])]) 
-
-  // Output arr in tables
-  outputResult(diffLagrangeArray, document.querySelector('.output-table-lagrange'))
-  outputResult(diffNewtonArray, document.querySelector('.output-table-newton'))
-  outputResult(diffSplineArray, document.querySelector('.output-table-spline'))
-
-  // Output values in tables  
-  outputValues({
-    'output-table-lagrange-values__max' : Math.max(...diffLagrangeArray.map(item => item[2])),
-    'output-table-lagrange-values__min' : Math.min(...diffLagrangeArray.map(item => item[2])),
-    'output-table-lagrange-values__avg' : diffLagrangeArray.map(item => item[2]).reduce((prev, item, index, arr) => prev + item / arr.length, 0)
-  }, document.querySelector('.output-table-lagrange-values')) 
-  outputValues({
-    'output-table-newton-values__max' : Math.max(...diffNewtonArray.map(item => item[2])),
-    'output-table-newton-values__min' : Math.min(...diffNewtonArray.map(item => item[2])),
-    'output-table-newton-values__avg' : diffNewtonArray.map(item => item[2]).reduce((prev, item, index, arr) => prev + item / arr.length, 0)
-  }, document.querySelector('.output-table-newton-values')) 
-  outputValues({
-    'output-table-spline-values__max' : Math.max(...diffSplineArray.map(item => item[2])),
-    'output-table-spline-values__min' : Math.min(...diffSplineArray.map(item => item[2])),
-    'output-table-spline-values__avg' : diffSplineArray.map(item => item[2]).reduce((prev, item, index, arr) => prev + item / arr.length, 0)
-  }, document.querySelector('.output-table-spline-values'))
+  // Output values  
+  allowedMethods.forEach(method =>  
+    outputInDocument({
+      [`output-table-${method}-values__max`] : Math.max(...methods[method]['diff']),
+      [`output-table-${method}-values__min`] : Math.min(...methods[method]['diff']),
+      [`output-table-${method}-values__avg`] : parseFloat(methods[method]['diff'].reduce((prev, item, index, arr) => prev + item / arr.length, 0).toFixed(5))
+    }) 
+  ) 
 
   // Draw functions
   let myCanvas = new Canvas(document.querySelector('canvas')) 
   myCanvas.grid([1, 1])  
   myCanvas.drawPoints(data, '#000000', [1, 1])
   myCanvas.drawLines(naturalArray, '#000000', [1, 1]) 
-  myCanvas.drawLines(lagrangeArray, '#00ff00', [1, 1]) 
-  myCanvas.drawLines(newtonArray, '#0000ff', [1, 1]) 
-  myCanvas.drawLines(splineArray, '#ff0000', [1, 1]) 
+
+  let colors = {'lagrange' : '#ff0000', 'newton' : '#00ff00', 'spline' : '#0000ff'} 
+  allowedMethods.forEach((method, index) =>
+    myCanvas.drawLines(methods[method]['array'], colors[method], [1, 1]) 
+  )
 }
 
 let run = (method) => {
@@ -101,8 +103,12 @@ let siteNameSpace = {
   },
   comparison : {
     onload : () => { 
+      comparisonInit()
       comparison()
-    } 
+    },
+    start : () => {
+      comparison()
+    }
   },
   lagrange : {
     onload : () => {
@@ -139,4 +145,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.addEventListener('argsInputed', () => { 
   siteNameSpace[ document.body.id ].start() 
-}) 
+})
+
+document.addEventListener('qwerty', (e) => {  
+  siteNameSpace[ document.body.id ].start() 
+})

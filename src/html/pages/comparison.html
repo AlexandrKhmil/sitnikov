@@ -16,57 +16,45 @@
         <!-- Canvas -->
         <h2>Main Part</h2>
         <canvas></canvas>
+
+        <% let methods = [{name : 'Лагранж', code : 'lagrange'},
+          {name : 'Ньютон', code : 'newton'},
+          {name : 'Сплайн', code : 'spline'}]
+        %>
+
+        <!-- Allowed Methods -->
+        <div class="checkboxs js-checkboxs-methods">
+          <% methods.forEach(method => { %>
+            <label class="js-checkboxs-methods-<%- method.code %>">
+              <input type="checkbox" checked />
+              <%- method.name %>
+            </label>
+          <% }) %> 
+        </div>
+
+        <!-- Tables of Methods -->
         <div class="flexbox">
           <!-- Lagrange -->
-          <%= _.template(require('./../components/output-table.html').default)({ 
-            wrapperClass : 'table-wrap-limiting flexbox__item', 
-            tableName : 'Лагранж',  
-            tableClass : 'output-table-lagrange',
-            th : ['x', 'f(x)', '∆'] 
-          }) %>
-            
-          <%= _.template(require('./../components/output-table.html').default)({   
-            tableClass : 'flexbox__item output-table-lagrange-values', 
-            tdList : [ 
-              [{text : 'Max'}, {className : 'output-table-lagrange-values__max'}], 
-              [{text : 'Min'}, {className : 'output-table-lagrange-values__min'}], 
-              [{text : 'Avg'}, {className : 'output-table-lagrange-values__avg'}],
-            ]
-          }) %>
-
-          <!-- Newton -->
-          <%= _.template(require('./../components/output-table.html').default)({ 
-            wrapperClass : 'table-wrap-limiting flexbox__item', 
-            tableName : 'Ньютон',  
-            tableClass : 'output-table-newton',
-            th : ['x', 'f(x)', '∆'] 
-          }) %>
-
-          <%= _.template(require('./../components/output-table.html').default)({   
-            tableClass : 'flexbox__item output-table-newton-values', 
-            tdList : [ 
-              [{text : 'Max'}, {className : 'output-table-newton-values__max'}], 
-              [{text : 'Min'}, {className : 'output-table-newton-values__min'}], 
-              [{text : 'Avg'}, {className : 'output-table-newton-values__avg'}],
-            ]
-          }) %>
-
-          <!-- Spline --> 
-          <%= _.template(require('./../components/output-table.html').default)({ 
-            wrapperClass : 'table-wrap-limiting flexbox__item', 
-            tableName : 'Сплайн',  
-            tableClass : 'output-table-spline',
-            th : ['x', 'f(x)', '∆'] 
-          }) %>
-
-          <%= _.template(require('./../components/output-table.html').default)({   
-            tableClass : 'flexbox__item output-table-spline-values', 
-            tdList : [ 
-              [{text : 'Max'}, {className : 'output-table-spline-values__max'}], 
-              [{text : 'Min'}, {className : 'output-table-spline-values__min'}], 
-              [{text : 'Avg'}, {className : 'output-table-spline-values__avg'}],
-            ]
-          }) %>
+          <% methods.forEach((method) => { %>
+            <div class="flexbox__group js-group-<%- method.code %>">
+              <%= _.template(require('./../components/output-table.html').default)({ 
+                wrapperClass : 'table-wrap-limiting flexbox__item', 
+                tableName : method.name,  
+                tableClass : `output-table-${method.code}`,
+                th : ['x', 'f(x)', '∆'] 
+              }) %>
+                
+              <%= _.template(require('./../components/output-table.html').default)({   
+                tableClass : `flexbox__item output-table-${method.code}-values`, 
+                tableName : 'Values',
+                tdList : [ 
+                  [{text : 'Max'}, {className : `output-table-${method.code}-values__max`}], 
+                  [{text : 'Min'}, {className : `output-table-${method.code}-values__min`}], 
+                  [{text : 'Avg'}, {className : `output-table-${method.code}-values__avg`}],
+                ]
+              }) %> 
+            </div>
+          <% }) %> 
         </div>  
       </div>
     </div> 
