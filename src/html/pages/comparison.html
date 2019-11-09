@@ -17,17 +17,27 @@
         <h2>Main Part</h2>
         <canvas></canvas>
 
-        <% let methods = [{name : 'Лагранж', code : 'lagrange'},
-          {name : 'Ньютон', code : 'newton'},
-          {name : 'Сплайн', code : 'spline'}]
+        <% 
+          let methods = [
+            {name : 'Лагранж', code : 'lagrange'},
+            {name : 'Ньютон', code : 'newton'},
+            {name : 'Сплайн', code : 'spline'}
+          ]
         %>
+
+        <!-- Quantity of points -->
+        <div class="dots-quantity">
+          <input type="number" min="1" step="1" value="4" />
+          <p>Количество точек для проверки</p>
+          <input type="submit" value="GO" /> 
+        </div>
 
         <!-- Allowed Methods -->
         <div class="checkboxs js-checkboxs-methods">
           <% methods.forEach(method => { %>
             <label class="js-checkboxs-methods-<%- method.code %>">
               <input type="checkbox" checked />
-              <%- method.name %>
+              <p><%- method.name %></p>
             </label>
           <% }) %> 
         </div>

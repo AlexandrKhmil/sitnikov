@@ -41,10 +41,16 @@ export let controllInit = () => {
 } 
 
 export let comparisonInit = () => { 
+  // Checkboxes for set allowed methods
   new Array(...document.querySelectorAll('.js-checkboxs-methods label input[type="checkbox"]')).forEach(checkbox => 
     checkbox.addEventListener('click', () => 
-      document.dispatchEvent(new Event('qwerty')) 
+      document.dispatchEvent(new Event('allowedMethodsChanged')) 
     )
+  ) 
+
+  // Clicked
+  document.querySelector('.dots-quantity input').addEventListener('click', () => 
+    document.dispatchEvent(new Event('comparisonPointsChanged')) 
   ) 
 }
 

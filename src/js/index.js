@@ -147,6 +147,11 @@ document.addEventListener('argsInputed', () => {
   siteNameSpace[ document.body.id ].start() 
 })
 
-document.addEventListener('qwerty', (e) => {  
+document.addEventListener('allowedMethodsChanged', (e) => {  
   siteNameSpace[ document.body.id ].start() 
+})
+ 
+document.addEventListener('comparisonPointsChanged', (e) => {  
+  console.log('111')
+  //siteNameSpace[ document.body.id ].start() 
 })
