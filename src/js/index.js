@@ -152,6 +152,6 @@ document.addEventListener('allowedMethodsChanged', (e) => {
 })
  
 document.addEventListener('comparisonPointsChanged', (e) => {  
-  console.log('111')
+  console.log('Go')
   //siteNameSpace[ document.body.id ].start() 
 })

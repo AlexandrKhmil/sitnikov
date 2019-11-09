@@ -19,16 +19,22 @@
 
         <% 
           let methods = [
-            {name : 'Лагранж', code : 'lagrange'},
-            {name : 'Ньютон', code : 'newton'},
-            {name : 'Сплайн', code : 'spline'}
+            { name : 'Лагранж', code : 'lagrange' },
+            { name : 'Ньютон', code : 'newton' },
+            { name : 'Сплайн', code : 'spline' }
           ]
         %>
 
         <!-- Quantity of points -->
-        <div class="dots-quantity">
-          <input type="number" min="1" step="1" value="4" />
-          <p>Количество точек для проверки</p>
+        <div class="js-dots">
+          <div>
+            <input class="js-dots__quantity" type="number" min="1" step="1" value="4" />
+            <p>Количество точек для проверки</p>
+          </div>
+          <div>
+            <input class="js-dots__step" type="number" min="0,1" step="0,1" value="1" />
+            <p>Шаг</p>
+          </div> 
           <input type="submit" value="GO" /> 
         </div>
 

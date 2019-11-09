@@ -49,7 +49,7 @@ export let comparisonInit = () => {
   ) 
 
   // Clicked
-  document.querySelector('.dots-quantity input').addEventListener('click', () => 
+  document.querySelector('.js-dots input[type="submit"]').addEventListener('click', () => 
     document.dispatchEvent(new Event('comparisonPointsChanged')) 
   ) 
 }
