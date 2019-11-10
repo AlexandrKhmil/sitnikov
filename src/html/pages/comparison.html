@@ -13,8 +13,7 @@
   
       <!-- Body -->
       <div class="page__body">
-        <!-- Canvas -->
-        <h2>Main Part</h2>
+        <!-- Canvas --> 
         <canvas></canvas>
 
         <% 
@@ -23,31 +22,38 @@
             { name : 'Ньютон', code : 'newton' },
             { name : 'Сплайн', code : 'spline' }
           ]
-        %>
+        %> 
 
-        <!-- Quantity of points -->
-        <div class="js-dots">
-          <div>
-            <input class="js-dots__quantity" type="number" min="1" step="1" value="4" />
-            <p>Количество точек для проверки</p>
-          </div>
-          <div>
-            <input class="js-dots__step" type="number" min="0,1" step="0,1" value="1" />
-            <p>Шаг</p>
-          </div> 
-          <input type="submit" value="GO" /> 
-        </div>
-
-        <!-- Allowed Methods -->
-        <div class="checkboxs js-checkboxs-methods">
-          <% methods.forEach(method => { %>
-            <label class="js-checkboxs-methods-<%- method.code %>">
-              <input type="checkbox" checked />
-              <p><%- method.name %></p>
+        <div class="flexbox flexbox__margin"> 
+          <!-- Quantity of points -->
+          <div class="flexbox__half js-dots">
+            <div class="flexbox__row">
+              <input class="js-dots__quantity" type="number" min="1" step="1" value="4" />
+              <p>Количество точек для проверки</p>
+            </div>
+            <div class="flexbox__row">
+              <input class="js-dots__step" type="number" min="0.1" step="0.1" value="1" />
+              <p>Шаг</p>
+            </div>
+            <p>Количество точек должно быть двух.<br /> При выставленном шаге они не должны выходить за пределы графика (10).<br /> Минимальный шаг - 0,1.</p> 
+            <label class="flexbox__row">
+              <input class="js-dots__further" type="checkbox" checked /> 
+              <p>Прогнозирование</p>
             </label>
-          <% }) %> 
-        </div>
+            <input class="blue-btn go" type="submit" value="" /> 
+          </div>
 
+          <!-- Allowed Methods -->
+          <div class="flexbox__half checkboxs js-checkboxs-methods">
+            <% methods.forEach(method => { %>
+              <label class="js-checkboxs-methods-<%- method.code %>">
+                <input type="checkbox" checked />
+                <p><%- method.name %></p>
+              </label>
+            <% }) %> 
+          </div>
+        </div> 
+        
         <!-- Tables of Methods -->
         <div class="flexbox">
           <!-- Lagrange -->
@@ -62,7 +68,7 @@
                 
               <%= _.template(require('./../components/output-table.html').default)({   
                 tableClass : `flexbox__item output-table-${method.code}-values`, 
-                tableName : 'Values',
+                tableName : '∆',
                 tdList : [ 
                   [{text : 'Max'}, {className : `output-table-${method.code}-values__max`}], 
                   [{text : 'Min'}, {className : `output-table-${method.code}-values__min`}], 

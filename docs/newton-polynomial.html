@@ -20,6 +20,8 @@
                     <li class="navigation__dropdown">Lab1
                       <ul>
                         
+                          <li><a href="/sitnikov/comparison.html">Сравнение</a></li>
+                        
                           <li><a href="/sitnikov/lagrange.html">Лагранж</a></li>
                         
                           <li><a href="/sitnikov/newton-polynomial.html">Ньютон</a></li>
@@ -44,9 +46,15 @@
   
       <!-- Body -->
       <div class="page__body">
-        <!-- Canvas -->
-        <h2>Main Part</h2>
+        <!-- Canvas --> 
         <canvas></canvas>
+
+        <div class="flexbox flexbox__margin">
+          <label class="flexbox__row">
+            <input class="js-dots__further" type="checkbox" checked /> 
+            <p>Прогнозирование</p>
+          </label>
+        </div>
 
         <!-- Input data -->
         <h4>Входные данные</h4>  
@@ -210,8 +218,7 @@
         
         <p>
           х должен быть задан с определенным периодом
-        </p>
-        
+        </p>  
       </div>
     </div> 
   </main>

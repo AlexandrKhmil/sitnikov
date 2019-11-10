@@ -10,30 +10,33 @@ import {outputArrayInTable, outputInDocument} from './html/output'
 import {controllInit, comparisonInit} from './html/events'
  
 /* ********************************************************************* */
-/* Функции которые совмещают работу классов */  
-let naturalLog = (start, final, step) => {
-  return [...new Array(Math.ceil(Math.abs(final - start) / step)).fill(start)
+/* Функции которые совмещают работу классов */   
+let naturalLog = (start, final, step, forecasting) => {
+  return [...new Array((!forecasting) ? Math.ceil(Math.abs(final - start) / step) : 101).fill(start)
     .map((item, index) => item + index * step), final]
     .map((point) => [point, Math.log(Math.pow(point, 2) + point + 1)])
 }
 
-let comparison = () => {
+let comparison = () => { 
+  // Get to know use forecasting or not
+  let forecasting = document.querySelector('.js-dots__further').checked
+
   // Get data from original function
-  let naturalArray = naturalLog(0, 10, 0.1) 
-  let data = [naturalArray[0], naturalArray[10], naturalArray[20], naturalArray[30], naturalArray[40]]
+  let naturalArray = naturalLog(0, 10, 0.1, forecasting) 
+  let data = new Array(parseInt(document.querySelector('.js-dots__quantity').value)).fill(1)
+    .map((item, index) => naturalArray[Math.floor(index * (document.querySelector('.js-dots__step').value)/0.1)])
 
   // Allowed methods
-  let allowedMethods = getAllowedCheckboxes()
- 
+  let allowedMethods = getAllowedCheckboxes() 
   new Array('lagrange', 'newton', 'spline').map(method => { return { name : method, exists : allowedMethods.includes(method)}}).forEach(method =>
-    document.querySelector(`.js-group-${method.name}`).style = (method.exists) ? '' : 'display: none' )
+    document.querySelector(`.js-group-${method.name}`).style = (method.exists) ? '' : 'display: none' ) 
 
   // Get data for methods  
   let methods = Object.assign({}, 
     ...Object.entries({
-      'lagrange' : { array : new Lagrange(data).getLine(data[0][0], data[data.length - 1][0], 0.1).map(item => item.map(item => parseFloat(item.toFixed(5)))) },
-      'newton' : { array : new Newton(data).getLine(data[0][0], data[data.length - 1][0], 0.1).map(item => item.map(item => parseFloat(item.toFixed(5)))) }, 
-      'spline' : { array : new Spline(data).getLine(data[0][0], data[data.length - 1][0], 0.1).map(item => item.map(item => parseFloat(item.toFixed(5)))) }
+      'lagrange' : { array : new Lagrange(data).getLine(data[0][0], data[data.length - 1][0], 0.1, forecasting).map(item => item.map(item => parseFloat(item.toFixed(5)))) },
+      'newton' : { array : new Newton(data).getLine(data[0][0], data[data.length - 1][0], 0.1, forecasting).map(item => item.map(item => parseFloat(item.toFixed(5)))) }, 
+      'spline' : { array : new Spline(data).getLine(data[0][0], data[data.length - 1][0], 0.1, forecasting).map(item => item.map(item => parseFloat(item.toFixed(5)))) }
     }).map(method => 
       Object({ [method[0]] : Object.assign(method[1], {'diff' : method[1].array.map((point, index) =>
           parseFloat((Math.abs(point[1] - naturalArray[index][1]).toFixed(5))))} 
@@ -70,6 +73,8 @@ let comparison = () => {
 }
 
 let run = (method) => {
+  // Get to know use forecasting or not
+  let forecasting = document.querySelector('.js-dots__further').checked
   // Reading Data
   let data = readingData()
 
@@ -77,13 +82,13 @@ let run = (method) => {
   let approximatedArray;
   switch(method) {
     case 'Lagrange' : 
-      approximatedArray = new Lagrange(data).getLine(data[0][0], data[data.length - 1][0], 0.1)
+      approximatedArray = new Lagrange(data).getLine(data[0][0], data[data.length - 1][0], 0.1, forecasting)
       break 
     case 'Newton' : 
-      approximatedArray = new Newton(data).getLine(data[0][0], data[data.length - 1][0], 0.1)
+      approximatedArray = new Newton(data).getLine(data[0][0], data[data.length - 1][0], 0.1, forecasting)
       break 
     case 'Spline' : 
-      approximatedArray = new Spline(data).getLine(data[0][0], data[data.length - 1][0], 0.1)
+      approximatedArray = new Spline(data).getLine(data[0][0], data[data.length - 1][0], 0.1, forecasting)
       break 
   }
 
@@ -151,7 +156,6 @@ document.addEventListener('allowedMethodsChanged', (e) => {
   siteNameSpace[ document.body.id ].start() 
 })
  
-document.addEventListener('comparisonPointsChanged', (e) => {  
-  console.log('Go')
-  //siteNameSpace[ document.body.id ].start() 
+document.addEventListener('comparisonPointsChanged', (e) => {   
+  siteNameSpace[ document.body.id ].start() 
 })

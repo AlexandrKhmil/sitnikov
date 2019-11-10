@@ -17,3 +17,14 @@
     outline: none;
   }
 }
+
+.go {
+  display: flex;
+  width: 100%;
+  height: 25px;
+  border-radius: 5%;
+  background-image: $play;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 10px;   
+}

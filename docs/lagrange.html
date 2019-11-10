@@ -20,6 +20,8 @@
                     <li class="navigation__dropdown">Lab1
                       <ul>
                         
+                          <li><a href="/sitnikov/comparison.html">Сравнение</a></li>
+                        
                           <li><a href="/sitnikov/lagrange.html">Лагранж</a></li>
                         
                           <li><a href="/sitnikov/newton-polynomial.html">Ньютон</a></li>
@@ -39,14 +41,20 @@
     <!-- Head -->
     <div class="page__head">
       <h1>Лабораторная работа #1</h1>
-      <h3>Апроксимация функций. Интерполяция Лагранжа</h3>
+      <h3>Апроксимация функций. Интерполяция Лагранжа. Калькулятор</h3>
     </div> 
 
     <!-- Body -->
     <div class="page__body">
-      <!-- Canvas -->
-      <h2>Main Part</h2>
+      <!-- Canvas --> 
       <canvas></canvas>
+
+      <div class="flexbox flexbox__margin">
+        <label class="flexbox__row">
+          <input class="js-dots__further" type="checkbox" checked /> 
+          <p>Прогнозирование</p>
+        </label>
+      </div>
       
       <!-- Input data -->
       <h4>Входные данные</h4>  
@@ -164,65 +172,7 @@
 
   <!-- Play -->
   <input class="blue-btn args__play" type="submit" value="" />
-</div> 
-
-      <!-- <h4>Управление графиком</h4>
-      <div class="controls"> 
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Параметр</th>
-          <th>Значение</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Ширина</td>
-          <td><input type="number" value="5000"/></td>
-        </tr>
-        <tr>
-          <td>Высота</td>
-          <td><input type="number" value="5000"/></td>
-        </tr>
-      </tbody>
-    </table> 
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Параметр</th>
-          <th>Значение</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Увеличение по Х</td>
-          <td><input type="number" value="750"/></td>
-        </tr>
-        <tr>
-          <td>Увеличение по Y</td>
-          <td><input type="number" value="750"/></td>
-        </tr>
-      </tbody> 
-    </table>
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Параметр</th>
-          <th>Значение</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>
-            Шаг:
-          </td>
-          <td><input type="number" value="0.1" step="0.1" /></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>  
-      -->
-
+</div>   
     </div>
   </div> 
 </main>

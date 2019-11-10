@@ -7,9 +7,9 @@ export class Interpolation {
     return x
   }
   
-  getLine(start, final, step) {
-    return [...new Array(Math.ceil(Math.abs(final - start) / step)).fill(start)
-      .map((item, index) => item + index * step), final]
+  getLine(start, final, step, forecasting) {
+    return [...new Array((!forecasting) ? Math.ceil(Math.abs(final - start) / step) + 1 : 101).fill(start)
+      .map((item, index) => item + index * step)]
       .map((point) => [point, this.getPoint(point)])
   }
 }

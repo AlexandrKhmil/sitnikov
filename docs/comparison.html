@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="shortcut icon" href="favicon/favicon.ico">
+    <link rel="stylesheet" href="css/style.bundle.css">
+
+    <title>MTZABD Lab1</title>
+  </head>
+  <body id="comparison">
+    <header class="header">
+      <div class="header__container">
+        <a class="logo" href="/sitnikov/">MTZABD</a>
+        <nav class="navigation">
+          <ul class="navigation__list">
+            <li><a href="/sitnikov/">Home</a></li>
+                   
+                    <li class="navigation__dropdown">Lab1
+                      <ul>
+                        
+                          <li><a href="/sitnikov/comparison.html">Сравнение</a></li>
+                        
+                          <li><a href="/sitnikov/lagrange.html">Лагранж</a></li>
+                        
+                          <li><a href="/sitnikov/newton-polynomial.html">Ньютон</a></li>
+                        
+                          <li><a href="/sitnikov/spline.html">Сплайн</a></li>
+                         
+                      </ul>
+                    </li>
+             
+          </ul>
+        </nav>
+      </div>
+    </header> 
+  
+  <main class="page">
+    <div class="page__container">
+      <!-- Head -->
+      <div class="page__head">
+        <h1>Лабораторная работа #1</h1>
+        <h3>Сравнение функций</h3>
+      </div> 
+  
+      <!-- Body -->
+      <div class="page__body">
+        <!-- Canvas --> 
+        <canvas></canvas>
+
+         
+
+        <div class="flexbox flexbox__margin"> 
+          <!-- Quantity of points -->
+          <div class="flexbox__half js-dots">
+            <div class="flexbox__row">
+              <input class="js-dots__quantity" type="number" min="1" step="1" value="4" />
+              <p>Количество точек для проверки</p>
+            </div>
+            <div class="flexbox__row">
+              <input class="js-dots__step" type="number" min="0.1" step="0.1" value="1" />
+              <p>Шаг</p>
+            </div>
+            <p>Количество точек должно быть двух.<br /> При выставленном шаге они не должны выходить за пределы графика (10).<br /> Минимальный шаг - 0,1.</p> 
+            <label class="flexbox__row">
+              <input class="js-dots__further" type="checkbox" checked /> 
+              <p>Прогнозирование</p>
+            </label>
+            <input class="blue-btn go" type="submit" value="" /> 
+          </div>
+
+          <!-- Allowed Methods -->
+          <div class="flexbox__half checkboxs js-checkboxs-methods">
+            
+              <label class="js-checkboxs-methods-lagrange">
+                <input type="checkbox" checked />
+                <p>Лагранж</p>
+              </label>
+            
+              <label class="js-checkboxs-methods-newton">
+                <input type="checkbox" checked />
+                <p>Ньютон</p>
+              </label>
+            
+              <label class="js-checkboxs-methods-spline">
+                <input type="checkbox" checked />
+                <p>Сплайн</p>
+              </label>
+             
+          </div>
+        </div> 
+        
+        <!-- Tables of Methods -->
+        <div class="flexbox">
+          <!-- Lagrange -->
+          
+            <div class="flexbox__group js-group-lagrange">
+              
+  <div class="table-wrap-limiting flexbox__item">
+
+  <table class="blue-table 
+    
+      output-table-lagrange
+    ">
+
+    
+      <caption>Лагранж</caption>
+     
+
+    
+      <thead>
+        <tr>
+          
+            <th>x</th>
+          
+            <th>f(x)</th>
+          
+            <th>∆</th>
+           
+        </tr>
+      </thead>
+     
+    <tbody>
+      
+    </tbody>
+  </table>
+
+
+  </div>
+ 
+                
+              
+  <table class="blue-table 
+    
+      flexbox__item output-table-lagrange-values
+    ">
+
+    
+      <caption>∆</caption>
+     
+
+     
+    <tbody>
+      
+          <tr>
+            
+              <td class="">
+                Max
+              </td>
+            
+              <td class="output-table-lagrange-values__max">
+                
+              </td>
+            
+          </tr>
+        
+          <tr>
+            
+              <td class="">
+                Min
+              </td>
+            
+              <td class="output-table-lagrange-values__min">
+                
+              </td>
+            
+          </tr>
+        
+          <tr>
+            
+              <td class="">
+                Avg
+              </td>
+            
+              <td class="output-table-lagrange-values__avg">
+                
+              </td>
+            
+          </tr>
+        
+    </tbody>
+  </table>
+
+  
+            </div>
+          
+            <div class="flexbox__group js-group-newton">
+              
+  <div class="table-wrap-limiting flexbox__item">
+
+  <table class="blue-table 
+    
+      output-table-newton
+    ">
+
+    
+      <caption>Ньютон</caption>
+     
+
+    
+      <thead>
+        <tr>
+          
+            <th>x</th>
+          
+            <th>f(x)</th>
+          
+            <th>∆</th>
+           
+        </tr>
+      </thead>
+     
+    <tbody>
+      
+    </tbody>
+  </table>
+
+
+  </div>
+ 
+                
+              
+  <table class="blue-table 
+    
+      flexbox__item output-table-newton-values
+    ">
+
+    
+      <caption>∆</caption>
+     
+
+     
+    <tbody>
+      
+          <tr>
+            
+              <td class="">
+                Max
+              </td>
+            
+              <td class="output-table-newton-values__max">
+                
+              </td>
+            
+          </tr>
+        
+          <tr>
+            
+              <td class="">
+                Min
+              </td>
+            
+              <td class="output-table-newton-values__min">
+                
+              </td>
+            
+          </tr>
+        
+          <tr>
+            
+              <td class="">
+                Avg
+              </td>
+            
+              <td class="output-table-newton-values__avg">
+                
+              </td>
+            
+          </tr>
+        
+    </tbody>
+  </table>
+
+  
+            </div>
+          
+            <div class="flexbox__group js-group-spline">
+              
+  <div class="table-wrap-limiting flexbox__item">
+
+  <table class="blue-table 
+    
+      output-table-spline
+    ">
+
+    
+      <caption>Сплайн</caption>
+     
+
+    
+      <thead>
+        <tr>
+          
+            <th>x</th>
+          
+            <th>f(x)</th>
+          
+            <th>∆</th>
+           
+        </tr>
+      </thead>
+     
+    <tbody>
+      
+    </tbody>
+  </table>
+
+
+  </div>
+ 
+                
+              
+  <table class="blue-table 
+    
+      flexbox__item output-table-spline-values
+    ">
+
+    
+      <caption>∆</caption>
+     
+
+     
+    <tbody>
+      
+          <tr>
+            
+              <td class="">
+                Max
+              </td>
+            
+              <td class="output-table-spline-values__max">
+                
+              </td>
+            
+          </tr>
+        
+          <tr>
+            
+              <td class="">
+                Min
+              </td>
+            
+              <td class="output-table-spline-values__min">
+                
+              </td>
+            
+          </tr>
+        
+          <tr>
+            
+              <td class="">
+                Avg
+              </td>
+            
+              <td class="output-table-spline-values__avg">
+                
+              </td>
+            
+          </tr>
+        
+    </tbody>
+  </table>
+
+  
+            </div>
+           
+        </div>  
+      </div>
+    </div> 
+  </main>
+  
+  <footer class="footer">
+
+</footer>
+
+<script src="js/bundle.js"></script>
+</body>
+</html>

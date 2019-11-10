@@ -22,6 +22,14 @@ a {
   text-decoration: none;
 }
 
+p {
+  margin: 0;
+}
+
+h4 {
+  margin-top: 0;
+}
+
 canvas {
   margin: 0 auto;
   max-width: 500px;
@@ -152,25 +160,73 @@ input[type=number] {
   box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.75);
 }
 
+.table-wrap-limiting {
+  display: flex;
+  max-height: 300px;
+  overflow: auto;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+}
+
+.table-wrap-limiting table {
+  border-bottom: none;
+  width: 100%;
+}
+
+.table-wrap-limiting table caption {
+  border-top: none;
+}
+
 .blue-table {
   border-collapse: collapse;
+  border: 1px solid #000;
 }
 
 .blue-table:last-child {
   margin: 0;
 }
 
+.blue-table caption,
 .blue-table th,
 .blue-table td {
-  border: 2px solid #000D0D;
+  height: 25px;
+  font-weight: 400;
 }
 
+.blue-table caption,
 .blue-table th {
   background: #a0c8c8;
 }
 
+.blue-table caption {
+  border-top: 1px solid #000;
+  border-left: 1px solid #000;
+  border-right: 1px solid #000;
+  font-weight: 700;
+}
+
+.blue-table tr:first-child td {
+  border-top: none;
+}
+
+.blue-table tr:last-child td {
+  border-bottom: none;
+}
+
+.blue-table th,
 .blue-table td {
   text-align: center;
+  border: 1px solid #000;
+}
+
+.blue-table th:first-child,
+.blue-table td:first-child {
+  border-left: none;
+}
+
+.blue-table th:last-child,
+.blue-table td:last-child {
+  border-right: none;
 }
 
 .blue-btn {
@@ -196,6 +252,28 @@ input[type=number] {
   outline: none;
 }
 
+.go {
+  display: flex;
+  width: 100%;
+  height: 25px;
+  border-radius: 5%;
+  background-image: url("../img/play.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 10px;
+}
+
+.checkboxs {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.checkboxs label {
+  display: flex;
+  cursor: pointer;
+}
+
 .args {
   display: flex;
   align-items: center;
@@ -205,8 +283,12 @@ input[type=number] {
   display: flex;
 }
 
+.args table {
+  width: auto;
+}
+
 .args__input {
-  padding: 0 0 0 20px;
+  padding: 0 1px 0 21px;
   width: 75px;
   border: none;
   text-align: center;
@@ -260,7 +342,7 @@ input[type=number] {
 
 .args-value__more,
 .args-value__less {
-  height: 10px;
+  height: 11px;
   width: 20px;
   background-repeat: no-repeat;
   background-position: center;
@@ -275,19 +357,50 @@ input[type=number] {
   background-image: url("../img/less.svg");
 }
 
-.controls {
+.flexbox {
   display: flex;
-}
-
-.c1 {
-  display: flex;
+  justify-content: space-between;
   align-items: flex-start;
 }
 
-.c2 {
+.flexbox__group,
+.flexbox__item {
+  margin-right: 50px;
+  flex-grow: 1;
+}
+
+.flexbox__group:last-child,
+.flexbox__item:last-child {
+  margin-right: 0;
+}
+
+.flexbox__group {
+  display: flex;
+}
+
+.flexbox__half {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: flex-start;
+  width: 50%;
+}
+
+.flexbox__margin {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.flexbox__row {
+  display: flex;
+  align-items: flex-start;
+  padding: 5px;
+}
+
+.flexbox__row input[type="number"] {
+  margin-right: 5px;
+  width: 50px;
+  height: 25px;
+  text-align: right;
 }
 
 

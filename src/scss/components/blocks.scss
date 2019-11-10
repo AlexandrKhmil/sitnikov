@@ -13,5 +13,30 @@
 
   &__group {
     display: flex; 
-  } 
+  }
+  
+  &__half {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 50%;
+  }
+  &__margin {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  &__row {
+    display: flex;
+    align-items: flex-start;
+
+    padding: 5px;
+
+    input[type="number"] {
+      margin-right: 5px;
+      width: 50px;
+      height: 25px;
+      text-align: right;
+    }
+  }
 }
+

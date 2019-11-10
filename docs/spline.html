@@ -20,6 +20,8 @@
                     <li class="navigation__dropdown">Lab1
                       <ul>
                         
+                          <li><a href="/sitnikov/comparison.html">Сравнение</a></li>
+                        
                           <li><a href="/sitnikov/lagrange.html">Лагранж</a></li>
                         
                           <li><a href="/sitnikov/newton-polynomial.html">Ньютон</a></li>
@@ -44,9 +46,15 @@
   
       <!-- Body -->
       <div class="page__body">
-        <!-- Canvas -->
-        <h2>Main Part</h2>
+        <!-- Canvas --> 
         <canvas></canvas>
+
+        <div class="flexbox flexbox__margin">
+          <label class="flexbox__row">
+            <input class="js-dots__further" type="checkbox" checked /> 
+            <p>Прогнозирование</p>
+          </label>
+        </div>
 
         <!-- Input data -->
         <h4>Входные данные</h4>  
@@ -142,7 +150,7 @@
         
         <td>
           <div class="args__td">
-            <input class="args__input" type="number" value="0" step="any" />
+            <input class="args__input" type="number" value="1.0986122886681096" step="any" />
             <div class="args-value">
               <input class="blue-btn args-value__more" type="submit" value="" />
               <input class="blue-btn args-value__less" type="submit" value="" />
@@ -151,7 +159,7 @@
         </td>
         <td>
           <div class="args__td">
-            <input class="args__input" type="number" value="0.69314718055995" step="any" />
+            <input class="args__input" type="number" value="1.9459101490553132" step="any" />
             <div class="args-value">
               <input class="blue-btn args-value__more" type="submit" value="" />
               <input class="blue-btn args-value__less" type="submit" value="" />
@@ -160,7 +168,7 @@
         </td>
         <td>
           <div class="args__td">
-            <input class="args__input" type="number" value="1.0986122886681" step="any" />
+            <input class="args__input" type="number" value="2.5649493574615367" step="any" />
             <div class="args-value">
               <input class="blue-btn args-value__more" type="submit" value="" />
               <input class="blue-btn args-value__less" type="submit" value="" />
@@ -169,7 +177,7 @@
         </td>
         <td>
           <div class="args__td">
-            <input class="args__input" type="number" value="1.3862943611199" step="any" />
+            <input class="args__input" type="number" value="3.044522437723423" step="any" />
             <div class="args-value">
               <input class="blue-btn args-value__more" type="submit" value="" />
               <input class="blue-btn args-value__less" type="submit" value="" />
@@ -178,7 +186,7 @@
         </td>
         <td>
           <div class="args__td">
-            <input class="args__input" type="number" value="1.6094379124341" step="any" />
+            <input class="args__input" type="number" value="3.4339872044851463" step="any" />
             <div class="args-value">
               <input class="blue-btn args-value__more" type="submit" value="" />
               <input class="blue-btn args-value__less" type="submit" value="" />
@@ -187,7 +195,7 @@
         </td>
         <td>
           <div class="args__td">
-            <input class="args__input" type="number" value="1.7917594692281" step="any" />
+            <input class="args__input" type="number" value="3.7612001156935624" step="any" />
             <div class="args-value">
               <input class="blue-btn args-value__more" type="submit" value="" />
               <input class="blue-btn args-value__less" type="submit" value="" />
@@ -210,8 +218,7 @@
 
         <p>
           х должен быть задан с определенным периодом
-        </p>
-        
+        </p> 
       </div>
     </div> 
   </main>

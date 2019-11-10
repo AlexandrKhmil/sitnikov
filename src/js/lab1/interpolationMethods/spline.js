@@ -25,8 +25,10 @@ export class Spline extends Interpolation {
         / (2 * this.h)]
   }
 
-  getPoint(x) {
-    let i = this.data.findIndex((item,index, arr) => item[0] <= x && arr[index + 1][0] >= x)  
+  getPoint(x) { 
+    let i = (x <= this.data[this.data.length - 1][0]) 
+      ? this.data.findIndex((item,index, arr) => item[0] <= x && arr[index + 1][0] >= x) 
+      : this.data.length - 2  
     return Math.pow(this.data[i + 1][0] - x, 2) * (2 * (x - this.data[i][0]) + this.h) * this.data[i][1] / Math.pow(this.h, 3)
       + Math.pow(x - this.data[i][0], 2) * (2 * (this.data[i + 1][0] - x) + this.h) * this.data[i + 1][1] / Math.pow(this.h, 3)
       + Math.pow(this.data[i + 1][0] - x, 2) * (x - this.data[i][0]) * this.m[i] / Math.pow(this.h, 2)
